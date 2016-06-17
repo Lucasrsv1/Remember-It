@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/NovaCarta"
+		android:title="@string/NovaCarta"
+		android:showAsAction="never" />
+	<item android:id="@+id/SalvarBaralho"
+		android:title="@string/SalvarBaralho"
+		android:showAsAction="never" />
+	<item android:id="@+id/ExcluirBaralho"
+		android:title="@string/ExcluirBaralho"
+		android:showAsAction="never" />
+</menu>

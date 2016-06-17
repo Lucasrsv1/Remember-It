@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">Remember It</string>
+	<string name="Criar">Criar Baralho</string>
+	<string name="Editar">Editar Baralho</string>
+	<string name="Sair">Sair</string>
+	<string name="Titulo">Título:</string>
+	<string name="Tema">Tema:</string>
+	<string name="Autor">Autor:</string>
+	<string name="NCartas">Número de Cartas:</string>
+	<string name="NovaCarta">Nova Carta</string>
+	<string name="ExcluirCarta">Excluir Carta</string>
+	<string name="ExcluirBaralho">Excluir Baralho</string>
+	<string name="SalvarBaralho">Salvar Baralho</string>
 </resources>
