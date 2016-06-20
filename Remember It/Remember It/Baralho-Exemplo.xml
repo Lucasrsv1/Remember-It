@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Cartas>
+	<Next>2</Next>
+	<Carta id="0" name="Carta 1">
+		<Frente background="#FC2A">
+			<Next>2</Next>
+			<Text fontSize="14" rect="0,40,200,60" gravity="center" style="normal" color="#CFFF" background="#8314">This is a simple text exemple.</Text>
+			<Image rect="100,100,50,50" scale="CenterInside" background="#AD11" src="img-0.0.jpg"/>
+			<Image rect="150,100,50,50" scale="CenterInside" background="#AD11" src="img-0.1.jpg"/>
+		</Frente>
+		<Verso background="#FC2A">
+			<Next>0</Next>
+			<Text fontSize="14" rect="0,40,200,60" gravity="center" style="normal" color="#CFFF" background="#8314">Exemple!</Text>
+		</Verso>
+	</Carta>
+	<Carta id="1" name="Carta 2">
+		<Frente background="img-1-F.jpg">
+			<Next>1</Next>
+			<Image rect="0,0,150,150" scale="CenterInside" background="#A11D" src="img-1.0.jpg"/>
+			<Text fontSize="18" rect="150,150,150,150" gravity="bottom|center_vertical" style="bold|italic" color="#DA3D" background="#F88A">Hello World!</Text>
+			<Text fontSize="14" rect="150,150,150,150" gravity="center" style="normal" color="#DA3D" background="">Hello People.</Text>
+		</Frente>
+		<Verso background="img-1-V.jpg">
+			<Next>1</Next>
+			<Image rect="0,0,150,150" scale="CenterInside" background="#A11D" src="img-1.0.jpg"/>
+			<Text fontSize="18" rect="150,150,150,150" gravity="bottom|center_vertical" style="bold|italic" color="#DA3D" background="#F88A">Hello!</Text>
+		</Verso>
+	</Carta>
+</Cartas>

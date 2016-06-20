@@ -24,7 +24,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/titulo" />
+                android:id="@+id/titulo"
+                android:inputType="text" />
             <TextView
                 android:text="@string/Tema"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -35,7 +36,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tema" />
+                android:id="@+id/tema"
+                android:inputType="text" />
             <TextView
                 android:text="@string/Autor"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -46,13 +48,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/autor" />
+                android:id="@+id/autor"
+                android:inputType="text" />
             <TextView
                 android:text="@string/NCartas"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView4"
+                android:id="@+id/NCartas"
                 android:layout_marginTop="20.0dp" />
             <LinearLayout
                 android:orientation="horizontal"
@@ -62,6 +65,12 @@
                 android:layout_height="80dp"
                 android:id="@+id/linearLayout3"
                 android:layout_marginTop="10.0dp" />
+            <ListView
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/CartasView" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

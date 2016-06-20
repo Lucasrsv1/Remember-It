@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/PositionView"
+		android:title="@string/Posicionar"
+		android:showAsAction="never" />
+	<item android:id="@+id/ResizeView"
+		android:title="@string/Redimencionar"
+		android:showAsAction="never" />
+	<item android:id="@+id/RemoveView"
+		android:title="@string/Remover"
+		android:showAsAction="never" />
+</menu>

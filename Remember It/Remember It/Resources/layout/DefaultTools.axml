@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="wrap_content"
+    p1:layout_height="match_parent"
+    p1:id="@+id/gridLayout1"
+    p1:layout_marginTop="380dp"
+    p1:layout_centerHorizontal="true">
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/linearLayout1">
+        <Button
+            p1:text="@string/AddText"
+            p1:layout_width="175dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/AddText" />
+        <Button
+            p1:text="@string/AddImg"
+            p1:layout_width="175dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/AddImg" />
+    </LinearLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/linearLayout2">
+        <Button
+            p1:text="@string/BackgroundColor"
+            p1:layout_width="175dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/BackgroundColor" />
+        <Button
+            p1:text="@string/EditarVerso"
+            p1:layout_width="175dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/EditarVerso" />
+    </LinearLayout>
+</GridLayout>

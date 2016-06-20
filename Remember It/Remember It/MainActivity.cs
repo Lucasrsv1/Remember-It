@@ -10,7 +10,7 @@ using Android.Widget;
 using Android.OS;
 
 namespace Remember_It {
-	[Activity(Label = "Remember It", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity {
 		public string appPath;
 		public Baralhos baralho;
@@ -61,25 +61,23 @@ namespace Remember_It {
 			}
 
 			string baralhoFileName = "Baralho-" + length.ToString() + ".lrv";
-			Toast.MakeText(this, baralhoFileName, ToastLength.Long).Show();
 
 			baralho = new Baralhos(baralhoFileName);
 			SGBD.AdicionarBaralho(baralho);
+			
+			Directory.CreateDirectory(Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources")));
 
 			using (XmlWriter xmlW = XmlWriter.Create(Path.Combine(appPath, baralhoFileName))) {
 				xmlW.WriteStartDocument();
 				xmlW.WriteStartElement("Cartas");
 
-				xmlW.WriteElementString("Length", "0");
+				xmlW.WriteElementString("Next", "0");
 
 				xmlW.WriteEndElement();
 				xmlW.WriteEndDocument();
 				xmlW.Close();
-
-				Toast.MakeText(this, "XML Criado!", ToastLength.Long).Show();
 			}
 
-			Toast.MakeText(this, appPath, ToastLength.Long).Show();
 			Intent intent = new Intent(this, typeof(EditorBaralho));
 			intent.PutExtra("Baralho_ID", baralho.ID);
 			StartActivity(intent);

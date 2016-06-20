@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/RecarregarCarta"
+		android:title="@string/RecarregarCarta"
+		android:showAsAction="never" />
+	<item android:id="@+id/SalvarCarta"
+		android:title="@string/SalvarCarta"
+		android:showAsAction="never" />
+	<item android:id="@+id/ExcluirCarta"
+		android:title="@string/ExcluirCarta"
+		android:showAsAction="never" />
+</menu>

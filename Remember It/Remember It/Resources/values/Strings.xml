@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ApplicationName">Remember It</string>
+	<string name="Editor">Editor de Baralhos</string>
+	<string name="EditorCartas">Editor de Cartas</string>
+	
+
 	<string name="Criar">Criar Baralho</string>
 	<string name="Editar">Editar Baralho</string>
 	<string name="Sair">Sair</string>
+	
 	<string name="Titulo">Título:</string>
 	<string name="Tema">Tema:</string>
 	<string name="Autor">Autor:</string>
 	<string name="NCartas">Número de Cartas:</string>
+	
 	<string name="NovaCarta">Nova Carta</string>
+	<string name="SalvarCarta">Salvar Carta</string>
 	<string name="ExcluirCarta">Excluir Carta</string>
-	<string name="ExcluirBaralho">Excluir Baralho</string>
+	<string name="RecarregarCarta">Recarregar Carta</string>
+
 	<string name="SalvarBaralho">Salvar Baralho</string>
+	<string name="ExcluirBaralho">Excluir Baralho</string>
+
+	<string name="AddText">Adicionar Texto</string>
+	<string name="AddImg">Adicionar Imagem</string>
+	<string name="EditarVerso">Editar Verso</string>
+	<string name="EditarFrente">Editar Frente</string>
+
+	<string name="BackgroundColor">Cor de Fundo</string>
+	<string name="TextColor">Cor da Fonte</string>
+	<string name="Posicionar">Posicionar</string>
+	<string name="Redimencionar">Redimencionar</string>
+	<string name="Remover">Remover</string>
 </resources>
