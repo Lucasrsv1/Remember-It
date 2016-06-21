@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="wrap_content"
+    p1:layout_height="match_parent"
+    p1:id="@+id/gridLayout1"
+    p1:layout_marginTop="380dp"
+    p1:layout_centerHorizontal="true">
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/linearLayout1">
+        <TextView
+            p1:text="@string/FontS"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="60.0dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/textView1"
+            p1:gravity="center_vertical"
+            p1:textSize="20dp" />
+        <AutoCompleteTextView
+            p1:layout_width="150dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/fontSize"
+            p1:textSize="20dp"
+            p1:layout_marginLeft="10dp"
+            p1:inputType="text" />
+        <Button
+            p1:text="@string/Negrito"
+            p1:layout_width="45dp"
+            p1:layout_height="45dp"
+            p1:id="@+id/negrito"
+            p1:textStyle="bold"
+            p1:textSize="20dp"
+            p1:layout_marginLeft="20dp"
+            p1:background="#696969" />
+        <Button
+            p1:text="@string/Itálico"
+            p1:layout_width="45dp"
+            p1:layout_height="45dp"
+            p1:id="@+id/itálico"
+            p1:textStyle="italic"
+            p1:textSize="20dp"
+            p1:layout_marginLeft="15dp"
+            p1:background="#696969" />
+    </LinearLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/linearLayout1">
+        <TextView
+            p1:text="@string/Align"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="60dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/textView2"
+            p1:gravity="center_vertical"
+            p1:textSize="20dp" />
+        <Spinner
+            p1:layout_width="150dp"
+            p1:layout_height="45dp"
+            p1:id="@+id/align"
+            p1:textSize="20dp"
+            p1:layout_marginLeft="10dp"
+            p1:layout_marginTop="5dp" />
+        <Button
+            p1:text="@string/Duplicar"
+            p1:layout_width="115dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/duplicar"
+            p1:textSize="16dp"
+            p1:layout_marginLeft="15dp" />
+    </LinearLayout>
+</GridLayout>

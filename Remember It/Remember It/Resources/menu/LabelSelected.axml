@@ -12,6 +12,9 @@
 	<item android:id="@+id/ResizeView"
 		android:title="@string/Redimencionar"
 		android:showAsAction="never" />
+	<item android:id="@+id/unselect"
+		android:title="@string/Unselect"
+		android:showAsAction="never" />
 	<item android:id="@+id/RemoveView"
 		android:title="@string/Remover"
 		android:showAsAction="never" />

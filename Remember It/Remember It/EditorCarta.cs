@@ -9,7 +9,7 @@ using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
-using Android.Runtime;
+using Android.Text;
 using Android.Views;
 using Android.Widget;
 
@@ -49,6 +49,7 @@ namespace Remember_It {
 		public string xmlDir;
 		public string appPath;
 		public string baralhoFileName;
+		public string[] aligns;
 		public View selected;
 		public EditText title;
 		public GridLayout tools;
@@ -76,6 +77,7 @@ namespace Remember_It {
 			carta.Click += Unselect;
 			relativeLayout.Click += Unselect;
 			FindViewById<LinearLayout>(Resource.Id.linearLayout0).Click += Unselect;
+			FindViewById<EditText>(Resource.Id.cartaTitulo).FocusChange += TitleFocus;
 
 			using (XmlReader xmlR = XmlReader.Create(xmlDir)) {
 				while (xmlR.Read()) {
@@ -105,7 +107,6 @@ namespace Remember_It {
 										Toast.MakeText(this, background + " não encontrado.", ToastLength.Long).Show();
 									}
 								} else {
-									Toast.MakeText(this, "Bg: " + background, ToastLength.Long).Show();
 									carta.SetBackgroundColor(new Color(int.Parse(background)));
 								}
 
@@ -136,7 +137,7 @@ namespace Remember_It {
 													//Aplica as configurações no novo EditText
 													newLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, fontS);
 													newLabel.SetText(text, TextView.BufferType.Editable);
-													newLabel.SetTypeface(null, GetTypeFace(style));
+													newLabel.SetTypeface(newLabel.Typeface, GetTypeFace(style));
 													newLabel.Gravity = GetGravity(gravity);
 													newLabel.LayoutParameters = layoutT;
 													newLabel.SetTextColor(color);
@@ -216,7 +217,7 @@ namespace Remember_It {
 			//Aplica as configurações no novo EditText
 			newLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, 22);
 			newLabel.SetText("Novo Texto", TextView.BufferType.Editable);
-			newLabel.SetTypeface(null, TypefaceStyle.Normal);
+			newLabel.SetTypeface(newLabel.Typeface, TypefaceStyle.Normal);
 			newLabel.Gravity = GravityFlags.Center;
 			newLabel.LayoutParameters = layoutT;
 			newLabel.SetTextColor(Color.Black);
@@ -227,7 +228,7 @@ namespace Remember_It {
 			carta.AddView(newLabel);
 			SelectT(newLabel, null);
 
-			Toast.MakeText(this, "Adicionado", ToastLength.Short).Show();
+			Toast.MakeText(this, "Adicionado.", ToastLength.Short).Show();
 		}
 
 		public void AddImg (object sender, EventArgs e) {
@@ -273,16 +274,184 @@ namespace Remember_It {
 			}
 		}
 
+		public void Duplicar (object sender = null, EventArgs e = null) {
+			if (selected != null) {
+				if (isImage) {
+					ImageView label = (ImageView)selected;
+					ImageView newLabel = new ImageView(carta.Context);
+
+				} else {
+					EditText label = (EditText)selected;
+					EditText newLabel = new EditText(carta.Context);
+
+
+					//Cria as configurações de tamanho e posicionamento do Texto
+					RelativeLayout.LayoutParams layoutT = new RelativeLayout.LayoutParams(label.LayoutParameters.Width, label.LayoutParameters.Height);
+					layoutT.LeftMargin = ((RelativeLayout.LayoutParams)label.LayoutParameters).LeftMargin + 5;
+					layoutT.TopMargin = ((RelativeLayout.LayoutParams)label.LayoutParameters).TopMargin + 5;
+
+					//Copia as configurações para o novo EditText
+					//Toast.MakeText(this, "S: " + PxToDip((int)label.TextSize) + " || D:" + Resources.DisplayMetrics.Density, ToastLength.Long).Show();
+					newLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, PxToDip((int)label.TextSize));
+					newLabel.SetText(label.Text, TextView.BufferType.Editable);
+					newLabel.Typeface = label.Typeface;
+					newLabel.Gravity = label.Gravity;
+					newLabel.LayoutParameters = layoutT;
+					newLabel.SetTextColor(new Color(label.CurrentTextColor));
+					newLabel.Background = label.Background;
+					newLabel.Click += SelectT;
+					newLabel.FocusChange += Focus;
+
+					carta.AddView(newLabel);
+					SelectT(newLabel, null);
+
+					Toast.MakeText(this, "Duplicado.", ToastLength.Short).Show();
+				}
+			}
+		}
+
 		public void Focus (object sender, View.FocusChangeEventArgs e) {
 			if (e.HasFocus) {
 				SelectT(sender);
-			} else if ((object)selected == sender) {
+			}
+		}
+
+		public void TitleFocus (object sender, View.FocusChangeEventArgs e) {
+			if (e.HasFocus) {
 				Unselect();
+			}
+		}
+
+		public void ChangeFontSize (object sender, AfterTextChangedEventArgs e) {
+			if (selected != null && !isImage) {
+				EditText label = (EditText)selected;
+				try {
+					label.TextSize = int.Parse(FindViewById<AutoCompleteTextView>(Resource.Id.fontSize).Text);
+				} catch {
+					Toast.MakeText(this, "Valor inválido.", ToastLength.Short).Show();
+				}
+			}
+		}
+
+		public void Negrito (object sender, EventArgs e) {
+			if (selected != null && !isImage) {
+				EditText label = (EditText)selected;
+				Button clicked = (Button)sender;
+
+				switch (label.Typeface.Style) {
+					case TypefaceStyle.Bold:
+						label.SetTypeface(Typeface.Default, TypefaceStyle.Normal);
+						clicked.SetBackgroundColor(Color.DimGray);
+						break;
+					case TypefaceStyle.BoldItalic:
+						label.SetTypeface(label.Typeface, TypefaceStyle.Italic);
+						clicked.SetBackgroundColor(Color.DimGray);
+						break;
+					case TypefaceStyle.Italic:
+						label.SetTypeface(label.Typeface, TypefaceStyle.BoldItalic);
+						clicked.SetBackgroundColor(new Color(68, 119, 255));
+						break;
+					case TypefaceStyle.Normal:
+						label.SetTypeface(label.Typeface, TypefaceStyle.Bold);
+						clicked.SetBackgroundColor(new Color(68, 119, 255));
+						break;
+				}
+			}
+		}
+
+		public void Italico (object sender, EventArgs e) {
+			if (selected != null && !isImage) {
+				EditText label = (EditText)selected;
+				Button clicked = (Button)sender;
+
+				switch (label.Typeface.Style) {
+					case TypefaceStyle.Bold:
+						label.SetTypeface(label.Typeface, TypefaceStyle.BoldItalic);
+						clicked.SetBackgroundColor(new Color(68, 119, 255));
+						break;
+					case TypefaceStyle.BoldItalic:
+						label.SetTypeface(label.Typeface, TypefaceStyle.Bold);
+						clicked.SetBackgroundColor(Color.DimGray);
+						break;
+					case TypefaceStyle.Italic:
+						label.SetTypeface(Typeface.Default, TypefaceStyle.Normal);
+						clicked.SetBackgroundColor(Color.DimGray);
+						break;
+					case TypefaceStyle.Normal:
+						label.SetTypeface(label.Typeface, TypefaceStyle.Italic);
+						clicked.SetBackgroundColor(new Color(68, 119, 255));
+						break;
+				}
+			}
+		}
+
+		public void ChangeAlign (object sender, AdapterView.ItemSelectedEventArgs e) {
+			if (selected != null && !isImage) {
+				EditText label = (EditText)selected;
+
+				switch (aligns[e.Position]) {
+					case "Superior-Esquerdo":
+						label.Gravity = GravityFlags.Left;
+						break;
+					case "Superior-Centro":
+						label.Gravity = GravityFlags.CenterHorizontal;
+						break;
+					case "Superior-Direito":
+						label.Gravity = GravityFlags.Right;
+						break;
+					case "Centro-Esquerdo":
+						label.Gravity = GravityFlags.CenterVertical;
+						break;
+					case "Centro-Centro":
+						label.Gravity = GravityFlags.Center;
+						break;
+					case "Centro-Direito":
+						label.Gravity = GravityFlags.CenterVertical | GravityFlags.Right;
+						break;
+					case "Inferior-Esquerdo":
+						label.Gravity = GravityFlags.Bottom;
+						break;
+					case "Inferior-Centro":
+						label.Gravity = GravityFlags.Bottom | GravityFlags.CenterHorizontal;
+						break;
+					case "Inferior-Direito":
+						label.Gravity = GravityFlags.Bottom | GravityFlags.Right;
+						break;
+				}
+			}
+		}
+
+		public int GetAlign (GravityFlags gravity) {
+			switch (gravity) {
+				case GravityFlags.Left:
+					return 0;
+				case GravityFlags.CenterHorizontal:
+					return 1;
+				case GravityFlags.Right:
+					return 2;
+				case GravityFlags.CenterVertical:
+					return 3;
+				case GravityFlags.Center:
+					return 4;
+				case GravityFlags.CenterVertical | GravityFlags.Right:
+					return 5;
+				case GravityFlags.Bottom:
+					return 6;
+				case GravityFlags.Bottom | GravityFlags.CenterHorizontal:
+					return 7;
+				case GravityFlags.Bottom | GravityFlags.Right:
+					return 8;
+				default:
+					return -1;
 			}
 		}
 
 		public int DipToPx (int dp) {
 			return (int) Android.Util.TypedValue.ApplyDimension(Android.Util.ComplexUnitType.Dip, dp, Resources.DisplayMetrics);
+		}
+
+		public int PxToDip (int px) {
+			return (int) (px / Resources.DisplayMetrics.Density);
 		}
 
 		public TypefaceStyle GetTypeFace (string style) {
@@ -367,8 +536,43 @@ namespace Remember_It {
 				if (relativeLayout == null)
 					relativeLayout = FindViewById<RelativeLayout>(Resource.Id.relativeLayout1);
 
-				//relativeLayout.RemoveView(FindViewById<GridLayout>(Resource.Id.gridLayout1));
-				//LayoutInflater.Inflate(Resource.Layout.LabelTools, relativeLayout);
+				relativeLayout.RemoveView(FindViewById<GridLayout>(Resource.Id.gridLayout1));
+				try {
+					LayoutInflater.Inflate(Resource.Layout.LabelTools, relativeLayout);
+
+					AutoCompleteTextView fontS = FindViewById<AutoCompleteTextView>(Resource.Id.fontSize);
+					fontS.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleDropDownItem1Line, new string[] { "8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "32", "36", "42", "48", "72" });
+					fontS.Text = PxToDip((int) ((EditText)selected).TextSize).ToString();
+					fontS.AfterTextChanged += ChangeFontSize;
+
+					aligns = new string[] { "Superior-Esquerdo", "Superior-Centro", "Superior-Direito", "Centro-Esquerdo", "Centro-Centro", "Centro-Direito", "Inferior-Esquerdo", "Inferior-Centro", "Inferior-Direito" };
+
+					Spinner align = FindViewById<Spinner>(Resource.Id.align);
+					align.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleDropDownItem1Line, aligns);
+					align.SetSelection(GetAlign(((EditText)selected).Gravity));
+					align.ItemSelected += ChangeAlign;
+
+					TypefaceStyle style = ((EditText) selected).Typeface.Style;
+
+					Button negrito = FindViewById<Button>(Resource.Id.negrito);
+					negrito.Click += Negrito;
+					if (style == TypefaceStyle.Bold || style == TypefaceStyle.BoldItalic)
+						negrito.SetBackgroundColor(new Color(68, 119, 255));
+					else
+						negrito.SetBackgroundColor(Color.DimGray);
+
+					Button italico = FindViewById<Button>(Resource.Id.itálico);
+					italico.Click += Italico;
+					if (style == TypefaceStyle.Italic || style == TypefaceStyle.BoldItalic)
+						italico.SetBackgroundColor(new Color(68, 119, 255));
+					else
+						italico.SetBackgroundColor(Color.DimGray);
+
+
+					FindViewById<Button>(Resource.Id.duplicar).Click += Duplicar;
+				} catch (Exception err) {
+					Toast.MakeText(this, "!: " + err.Message, ToastLength.Long).Show();
+				}
 			}
 
 			return base.OnCreateOptionsMenu(menu);
@@ -378,6 +582,9 @@ namespace Remember_It {
 			switch (item.ItemId) {
 				case Android.Resource.Id.Home:
 					Finish();
+					break;
+				case Resource.Id.unselect:
+					Unselect();
 					break;
 				case Resource.Id.RemoveView:
 					carta.RemoveView(selected);

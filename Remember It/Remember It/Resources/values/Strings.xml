@@ -32,4 +32,12 @@
 	<string name="Posicionar">Posicionar</string>
 	<string name="Redimencionar">Redimencionar</string>
 	<string name="Remover">Remover</string>
+
+	<string name="Negrito">N</string>
+	<string name="Itálico">I</string>
+
+	<string name="FontS">Tam.:</string>
+	<string name="Align">Alinh.:</string>
+	<string name="Duplicar">Duplicar</string>
+	<string name="Unselect">Deselecionar</string>
 </resources>
