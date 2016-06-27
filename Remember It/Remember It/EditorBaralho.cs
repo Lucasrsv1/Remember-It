@@ -66,10 +66,12 @@ namespace Remember_It {
 
 			XElement front = new XElement("Frente");
 			front.Add(new XAttribute("background", Android.Graphics.Color.White.ToArgb()));
+			front.Add(new XAttribute("src", ""));
 			front.Add(new XElement("Next", 0));
 
 			XElement back = new XElement("Verso");
 			back.Add(new XAttribute("background", Android.Graphics.Color.White.ToArgb()));
+			back.Add(new XAttribute("src", ""));
 			back.Add(new XElement("Next", 0));
 
 			card.Add(front);

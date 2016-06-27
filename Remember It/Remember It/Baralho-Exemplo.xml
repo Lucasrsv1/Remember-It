@@ -2,28 +2,28 @@
 <Cartas>
 	<Next>2</Next>
 	<Carta id="0" name="Carta 1">
-		<Frente background="#FC2A">
+		<Frente background="#FC2A" src="">
 			<Next>2</Next>
-			<Text fontSize="14" rect="0,40,200,60" gravity="center" style="normal" color="#CFFF" background="#8314">This is a simple text exemple.</Text>
-			<Image rect="100,100,50,50" scale="CenterInside" background="#AD11" src="img-0.0.jpg"/>
-			<Image rect="150,100,50,50" scale="CenterInside" background="#AD11" src="img-0.1.jpg"/>
+			<Text fontSize="14" rect="0,40,200,60" gravity="center" style="normal" color="#CFFF" background="#8314" z="1">This is a simple text exemple.</Text>
+			<Image rect="100,100,50,50" scale="CenterInside" background="#AD11" z="1" src="img-0.0.jpg"/>
+			<Image rect="150,100,50,50" scale="CenterInside" background="#AD11" z="1" src="img-0.1.jpg"/>
 		</Frente>
-		<Verso background="#FC2A">
+		<Verso background="#FC2A" src="">
 			<Next>0</Next>
-			<Text fontSize="14" rect="0,40,200,60" gravity="center" style="normal" color="#CFFF" background="#8314">Exemple!</Text>
+			<Text fontSize="14" rect="0,40,200,60" gravity="center" style="normal" color="#CFFF" background="#8314" z="1">Exemple!</Text>
 		</Verso>
 	</Carta>
 	<Carta id="1" name="Carta 2">
-		<Frente background="img-1-F.jpg">
+		<Frente background="#FC2A" src="img-1-F.jpg">
 			<Next>1</Next>
-			<Image rect="0,0,150,150" scale="CenterInside" background="#A11D" src="img-1.0.jpg"/>
-			<Text fontSize="18" rect="150,150,150,150" gravity="bottom|center_vertical" style="bold|italic" color="#DA3D" background="#F88A">Hello World!</Text>
-			<Text fontSize="14" rect="150,150,150,150" gravity="center" style="normal" color="#DA3D" background="">Hello People.</Text>
+			<Image rect="0,0,150,150" scale="CenterInside" background="#A11D" z="1" src="img-1.0.jpg"/>
+			<Text fontSize="18" rect="150,150,150,150" gravity="bottom|center_vertical" style="bold|italic" color="#DA3D" background="#F88A" z="1">Hello World!</Text>
+			<Text fontSize="14" rect="150,150,150,150" gravity="center" style="normal" color="#DA3D" background="" z="1">Hello People.</Text>
 		</Frente>
-		<Verso background="img-1-V.jpg">
+		<Verso background="#FC2A" src="img-1-V.jpg">
 			<Next>1</Next>
-			<Image rect="0,0,150,150" scale="CenterInside" background="#A11D" src="img-1.0.jpg"/>
-			<Text fontSize="18" rect="150,150,150,150" gravity="bottom|center_vertical" style="bold|italic" color="#DA3D" background="#F88A">Hello!</Text>
+			<Image rect="0,0,150,150" scale="CenterInside" background="#A11D" z="1" src="img-1.0.jpg"/>
+			<Text fontSize="18" rect="150,150,150,150" gravity="bottom|center_vertical" style="bold|italic" color="#DA3D" background="#F88A" z="1">Hello!</Text>
 		</Verso>
 	</Carta>
 </Cartas>

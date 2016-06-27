@@ -27,9 +27,17 @@
 	<string name="EditarVerso">Editar Verso</string>
 	<string name="EditarFrente">Editar Frente</string>
 
+	<string name="Frente">Frente</string>
+	<string name="Verso">Verso</string>
+
 	<string name="BackgroundColor">Cor de Fundo</string>
+	<string name="UseAsBackground">Usar como Fundo</string>
+	<string name="ResetBackground">Redefinir Fundo</string>
+	<string name="BackgroundTransparent">Fundo Transparente</string>
 	<string name="TextColor">Cor da Fonte</string>
 	<string name="Posicionar">Posicionar</string>
+	<string name="HorizontalCenter">Centralizar Horizontal</string>
+	<string name="VerticalCenter">Centralizar Vertical</string>
 	<string name="Redimencionar">Redimencionar</string>
 	<string name="Remover">Remover</string>
 
@@ -38,6 +46,22 @@
 
 	<string name="FontS">Tam.:</string>
 	<string name="Align">Alinh.:</string>
+	<string name="Scale">Escala:</string>
 	<string name="Duplicar">Duplicar</string>
 	<string name="Unselect">Deselecionar</string>
+	<string name="TrocarImg">Trocar Imagem</string>
+	<string name="ResetImage">Redefinir Imagem</string>
+	
+	<string name="OK">OK</string>
+	<string name="Voltar">Voltar</string>
+	<string name="Cancelar">Cancelar</string>
+
+	<string name="Width">L:</string>
+	<string name="Height">A:</string>
+
+	<string name="ConfirmBackgroundTitle">Usar cor sólida?</string>
+	<string name="ConfirmBackground">Isso vai substituir a imagem do fundo da carta por uma cor sólida.</string>
+
+	<string name="Yes">Sim</string>
+	<string name="No">Não</string>
 </resources>

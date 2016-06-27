@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/UseAsBackground"
+		android:title="@string/UseAsBackground"
+		android:showAsAction="never" />
+	<item android:id="@+id/BackgroundTransparent"
+		android:title="@string/BackgroundTransparent"
+		android:showAsAction="never" />
+	<item android:id="@+id/ResetImage"
+		android:title="@string/ResetImage"
+		android:showAsAction="never" />
+	<item android:id="@+id/HorizontalCenter"
+		android:title="@string/HorizontalCenter"
+		android:showAsAction="never" />
+	<item android:id="@+id/VerticalCenter"
+		android:title="@string/VerticalCenter"
+		android:showAsAction="never" />
 	<item android:id="@+id/PositionView"
 		android:title="@string/Posicionar"
 		android:showAsAction="never" />

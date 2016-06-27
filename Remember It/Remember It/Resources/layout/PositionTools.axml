@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="wrap_content"
+    p1:layout_height="match_parent"
+    p1:id="@+id/gridLayout1"
+    p1:layout_marginTop="380dp"
+    p1:layout_centerHorizontal="true">
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/linearLayout1">
+        <TextView
+            p1:text="X:"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="20dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/textView1"
+            p1:gravity="center_vertical"
+            p1:textSize="20dp" />
+        <EditText
+            p1:layout_width="80dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/x"
+            p1:textSize="20dp"
+            p1:layout_marginLeft="10.0dp"
+            p1:inputType="number" />
+        <Button
+            p1:text="+"
+            p1:layout_width="44dp"
+            p1:layout_height="44dp"
+            p1:id="@+id/plusX"
+            p1:layout_marginLeft="10dp"
+            p1:layout_marginTop="3dp"
+            p1:textSize="16dp" />
+        <Button
+            p1:text="-"
+            p1:layout_width="44dp"
+            p1:layout_height="44dp"
+            p1:id="@+id/lessX"
+            p1:layout_marginTop="3dp"
+            p1:textSize="16dp" />
+        <TextView
+            p1:text="Z:"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="20dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/textView3"
+            p1:gravity="center_vertical"
+            p1:textSize="20dp"
+            p1:layout_marginLeft="10dp" />
+        <EditText
+            p1:layout_width="100dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/z"
+            p1:textSize="20dp"
+            p1:layout_marginLeft="10.0dp"
+            p1:inputType="number" />
+    </LinearLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/linearLayout2">
+        <TextView
+            p1:text="Y:"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="20dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/textView2"
+            p1:gravity="center_vertical"
+            p1:textSize="20dp" />
+        <EditText
+            p1:layout_width="80dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/y"
+            p1:textSize="20dp"
+            p1:layout_marginLeft="10.0dp"
+            p1:inputType="number" />
+        <Button
+            p1:text="+"
+            p1:layout_width="44dp"
+            p1:layout_height="44dp"
+            p1:id="@+id/plusY"
+            p1:layout_marginLeft="10dp"
+            p1:layout_marginTop="3dp"
+            p1:textSize="16dp" />
+        <Button
+            p1:text="-"
+            p1:layout_width="44dp"
+            p1:layout_height="44dp"
+            p1:id="@+id/lessY"
+            p1:layout_marginTop="3dp"
+            p1:textSize="16dp" />
+        <Button
+            p1:text="@string/Voltar"
+            p1:layout_width="70dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/voltar"
+            p1:textSize="12dp"
+            p1:layout_marginLeft="5.0dp" />
+        <Button
+            p1:text="@string/OK"
+            p1:layout_width="70dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/confirmPos"
+            p1:textSize="12dp" />
+    </LinearLayout>
+</GridLayout>

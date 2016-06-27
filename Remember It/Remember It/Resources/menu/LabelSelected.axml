@@ -6,6 +6,15 @@
 	<item android:id="@+id/TextBackground"
 		android:title="@string/BackgroundColor"
 		android:showAsAction="never" />
+	<item android:id="@+id/BackgroundTransparent"
+		android:title="@string/BackgroundTransparent"
+		android:showAsAction="never" />
+	<item android:id="@+id/HorizontalCenter"
+		android:title="@string/HorizontalCenter"
+		android:showAsAction="never" />
+	<item android:id="@+id/VerticalCenter"
+		android:title="@string/VerticalCenter"
+		android:showAsAction="never" />
 	<item android:id="@+id/PositionView"
 		android:title="@string/Posicionar"
 		android:showAsAction="never" />

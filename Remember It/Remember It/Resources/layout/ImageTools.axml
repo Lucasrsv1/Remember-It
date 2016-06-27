@@ -15,39 +15,18 @@
         p1:layout_width="wrap_content"
         p1:layout_height="wrap_content"
         p1:id="@+id/linearLayout1">
-        <TextView
-            p1:text="@string/FontS"
-            p1:textAppearance="?android:attr/textAppearanceLarge"
-            p1:layout_width="60.0dp"
-            p1:layout_height="55dp"
-            p1:id="@+id/textView1"
-            p1:gravity="center_vertical"
-            p1:textSize="20dp" />
-        <AutoCompleteTextView
-            p1:layout_width="150dp"
-            p1:layout_height="55dp"
-            p1:id="@+id/fontSize"
-            p1:textSize="20dp"
-            p1:layout_marginLeft="10dp"
-            p1:inputType="number" />
         <Button
-            p1:text="@string/Negrito"
-            p1:layout_width="45dp"
-            p1:layout_height="45dp"
-            p1:id="@+id/negrito"
-            p1:textStyle="bold"
-            p1:textSize="20dp"
-            p1:layout_marginLeft="20dp"
-            p1:background="#696969" />
+            p1:text="@string/BackgroundColor"
+            p1:layout_width="175dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/ImageBackground"
+            p1:textSize="16dp" />
         <Button
-            p1:text="@string/Itálico"
-            p1:layout_width="45dp"
-            p1:layout_height="45dp"
-            p1:id="@+id/itálico"
-            p1:textStyle="italic"
-            p1:textSize="20dp"
-            p1:layout_marginLeft="15dp"
-            p1:background="#696969" />
+            p1:text="@string/TrocarImg"
+            p1:layout_width="175dp"
+            p1:layout_height="55dp"
+            p1:id="@+id/changeImg"
+            p1:textSize="16dp" />
     </LinearLayout>
     <LinearLayout
         p1:orientation="horizontal"
@@ -57,17 +36,17 @@
         p1:layout_height="wrap_content"
         p1:id="@+id/linearLayout1">
         <TextView
-            p1:text="@string/Align"
+            p1:text="@string/Scale"
             p1:textAppearance="?android:attr/textAppearanceLarge"
-            p1:layout_width="60dp"
+            p1:layout_width="65dp"
             p1:layout_height="55dp"
             p1:id="@+id/textView2"
             p1:gravity="center_vertical"
             p1:textSize="20dp" />
         <Spinner
-            p1:layout_width="150dp"
+            p1:layout_width="145dp"
             p1:layout_height="45dp"
-            p1:id="@+id/align"
+            p1:id="@+id/scale"
             p1:textSize="20dp"
             p1:layout_marginLeft="10dp"
             p1:layout_marginTop="5dp" />
