@@ -45,7 +45,6 @@ namespace Remember_It {
 	[Activity(Label = "@string/EditorCartas", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
 	public class EditorCarta : Activity, IDialogInterfaceOnClickListener {
 		public int cardID;
-		public bool isImage;
 		public string side;
 		public string xmlDir;
 		public string appPath;
@@ -87,7 +86,7 @@ namespace Remember_It {
 			carta.Click += Unselect;
 			relativeLayout.Click += Unselect;
 			FindViewById<LinearLayout>(Resource.Id.linearLayout0).Click += Unselect;
-			FindViewById<EditText>(Resource.Id.cartaTitulo).FocusChange += TitleFocus;
+			FindViewById<EditText>(Resource.Id.cartaTitulo).Touch += Unselect;
 
 			using (XmlReader xmlR = XmlReader.Create(xmlDir)) {
 				while (xmlR.Read()) {
@@ -199,7 +198,6 @@ namespace Remember_It {
 													newImage.SetBackgroundColor(backgroundI);
 													newImage.SetZ(zIndex);
 													newImage.Click += SelectI;
-													newImage.FocusChange += Focus;
 
 													carta.AddView(newImage);
 												} catch (Exception err) {
@@ -218,6 +216,20 @@ namespace Remember_It {
 						}
 					}
 				}
+			}
+		}
+
+		public bool IsImage () {
+			try {
+				ImageView check = (ImageView) selected;
+
+				if (check != null)
+					return true;
+				else
+					return false;
+
+			} catch {
+				return false;
 			}
 		}
 
@@ -270,7 +282,6 @@ namespace Remember_It {
 			newImage.SetBackgroundColor(Color.Transparent);
 			newImage.SetZ(0);
 			newImage.Click += SelectI;
-			newImage.FocusChange += Focus;
 
 			carta.AddView(newImage);
 			SelectI(newImage, null);
@@ -314,19 +325,45 @@ namespace Remember_It {
 		}
 
 		public void SelectT (object sender, EventArgs e = null) {
+			if (selected != null) {
+				selected.Click -= SizeEvent;
+
+				if (IsImage()) {
+					selected.LongClick -= PosEvent;
+					selected.Click += SelectI;
+				} else {
+					selected.Click += SelectT;
+				}
+
+				selected.ClearFocus();
+				selected = null;
+			}
+
 			EditText clicked = (EditText) sender;
 
 			selected = clicked;
 			selected.RequestFocus();
 			selected.Click -= SelectT;
 			selected.Click += SizeEvent;
-			selected.LongClick += PosEvent;
 
-			isImage = false;
 			InvalidateOptionsMenu();
 		}
 
 		public void SelectI (object sender, EventArgs e = null) {
+			if (selected != null) {
+				selected.Click -= SizeEvent;
+
+				if (IsImage()) {
+					selected.LongClick -= PosEvent;
+					selected.Click += SelectI;
+				} else {
+					selected.Click += SelectT;
+				}
+
+				selected.ClearFocus();
+				selected = null;
+			}
+			
 			ImageView clicked = (ImageView) sender;
 
 			selected = clicked;
@@ -335,25 +372,24 @@ namespace Remember_It {
 			selected.Click += SizeEvent;
 			selected.LongClick += PosEvent;
 
-			isImage = true;
 			InvalidateOptionsMenu();
 		}
 
 		public void Unselect (object sender = null, EventArgs e = null) {
 			if (selected != null) {
-				selected.LongClick -= PosEvent;
 				selected.Click -= SizeEvent;
 
-				if (isImage)
+				if (IsImage()) {
+					selected.LongClick -= PosEvent;
 					selected.Click += SelectI;
-				else
+				} else {
 					selected.Click += SelectT;
+				}
 
 				selected.ClearFocus();
 				selected = null;
 
 				title.RequestFocus();
-				isImage = false;
 				InvalidateOptionsMenu();
 			}
 		}
@@ -368,7 +404,7 @@ namespace Remember_It {
 
 		public void Duplicar (object sender = null, EventArgs e = null) {
 			if (selected != null) {
-				if (isImage) {
+				if (IsImage()) {
 					ImageView image = (ImageView) selected;
 					ImageView newImage = new ImageView(carta.Context);
 
@@ -384,7 +420,6 @@ namespace Remember_It {
 					newImage.SetBackgroundColor(((ColorDrawable) image.Background).Color);
 					newImage.SetZ(image.GetZ());
 					newImage.Click += SelectI;
-					newImage.FocusChange += Focus;
 
 					carta.AddView(newImage);
 				} else {
@@ -418,19 +453,13 @@ namespace Remember_It {
 		}
 
 		public void Focus (object sender, View.FocusChangeEventArgs e) {
-			if (e.HasFocus) {
+			if (e.HasFocus && sender != (object) selected) {
 				SelectT(sender);
 			}
 		}
 
-		public void TitleFocus (object sender, View.FocusChangeEventArgs e) {
-			if (e.HasFocus) {
-				Unselect();
-			}
-		}
-
 		public void ChangeFontSize (object sender, AfterTextChangedEventArgs e) {
-			if (selected != null && !isImage) {
+			if (selected != null && !IsImage()) {
 				EditText label = (EditText)selected;
 				try {
 					label.TextSize = int.Parse(FindViewById<AutoCompleteTextView>(Resource.Id.fontSize).Text);
@@ -441,7 +470,7 @@ namespace Remember_It {
 		}
 
 		public void Negrito (object sender, EventArgs e) {
-			if (selected != null && !isImage) {
+			if (selected != null && !IsImage()) {
 				EditText label = (EditText)selected;
 				Button clicked = (Button)sender;
 
@@ -467,7 +496,7 @@ namespace Remember_It {
 		}
 
 		public void Italico (object sender, EventArgs e) {
-			if (selected != null && !isImage) {
+			if (selected != null && !IsImage()) {
 				EditText label = (EditText)selected;
 				Button clicked = (Button)sender;
 
@@ -493,7 +522,7 @@ namespace Remember_It {
 		}
 
 		public void ChangeAlign (object sender, AdapterView.ItemSelectedEventArgs e) {
-			if (selected != null && !isImage) {
+			if (selected != null && !IsImage()) {
 				EditText label = (EditText)selected;
 
 				switch (aligns[e.Position]) {
@@ -529,7 +558,7 @@ namespace Remember_It {
 		}
 
 		public void ChangeScale (object sender, AdapterView.ItemSelectedEventArgs e) {
-			if (selected != null && isImage) {
+			if (selected != null && IsImage()) {
 				ImageView image = (ImageView) selected;
 
 				switch (scales[e.Position]) {
@@ -845,7 +874,7 @@ namespace Remember_It {
 				EditText w = FindViewById<EditText>(Resource.Id.width);
 				EditText h = FindViewById<EditText>(Resource.Id.height);
 
-				if (isImage) {
+				if (IsImage()) {
 					w.Text = PxToDip(layout.Width).ToString();
 					h.Text = PxToDip(layout.Height).ToString();
 				} else {
@@ -1107,7 +1136,7 @@ namespace Remember_It {
 			if (resultCode == Result.Ok) {
 				if (data.Data != null && requestCode == 1) {
 					AddImage(BitmapFactory.DecodeStream(ContentResolver.OpenInputStream(data.Data)));
-				} else if (data.Data != null && requestCode == 2 && isImage) {
+				} else if (data.Data != null && requestCode == 2 && IsImage()) {
 					((ImageView) selected).SetImageBitmap(BitmapFactory.DecodeStream(ContentResolver.OpenInputStream(data.Data)));
 				}
 			}
@@ -1139,9 +1168,9 @@ namespace Remember_It {
 				LayoutInflater.Inflate(Resource.Layout.DefaultTools, relativeLayout);
 
 				if (side == "Frente")
-					FindViewById<Button>(Resource.Id.EditarVerso).Text = "Editar Verso";
+					FindViewById<Button>(Resource.Id.EditarVerso).Text = GetString(Resource.String.EditarVerso);
 				else
-					FindViewById<Button>(Resource.Id.EditarVerso).Text = "Editar Frente";
+					FindViewById<Button>(Resource.Id.EditarVerso).Text = GetString(Resource.String.EditarFrente);
 
 				FindViewById<Button>(Resource.Id.AddText).Click += AddText;
 				FindViewById<Button>(Resource.Id.EditarVerso).Click += Turn;
@@ -1162,7 +1191,7 @@ namespace Remember_It {
 							.Show();
 					}
 				};
-			} else if (isImage) {
+			} else if (IsImage()) {
 				MenuInflater.Inflate(Resource.Menu.ImageSelected, menu);
 
 				if (relativeLayout == null)
@@ -1173,7 +1202,6 @@ namespace Remember_It {
 
 				selected = FindViewById(911);
 				selected.Id = 0;
-				isImage = true;
 
 				try {
 					LayoutInflater.Inflate(Resource.Layout.ImageTools, relativeLayout);
@@ -1207,7 +1235,6 @@ namespace Remember_It {
 
 				selected = FindViewById(911);
 				selected.Id = 0;
-				isImage = false;
 
 				try {
 					LayoutInflater.Inflate(Resource.Layout.LabelTools, relativeLayout);
