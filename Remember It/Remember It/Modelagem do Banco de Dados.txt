@@ -1,9 +1,10 @@
 ﻿CREATE TABLE Baralhos (
 	ID int PRIMARY KEY AUTO_INCREMENT,
-	Tema int NOT NULL,
+	Tema VARCHAR(100) NOT NULL,
 	Titulo VARCHAR(100) NOT NULL,
 	Autor VARCHAR(100) NOT NULL,
 	Cartas VARCHAR(256) NOT NULL,
+	NCartas int NOT NULL,
 	Partidas int NOT NULL,
 	Acertos int NOT NULL,
 	Erros int NOT NULL,

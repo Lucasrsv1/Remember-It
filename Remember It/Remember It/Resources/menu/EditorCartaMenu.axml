@@ -3,6 +3,15 @@
 	<item android:id="@+id/ResetBackground"
 		android:title="@string/ResetBackground"
 		android:showAsAction="never" />
+	<item android:id="@+id/CopiarLado"
+		android:title="@string/CopiarLado"
+		android:showAsAction="never" />
+	<item android:id="@+id/InverterLado"
+		android:title="@string/InverterLado"
+		android:showAsAction="never" />
+	<item android:id="@+id/ClonarCarta"
+		android:title="@string/ClonarCarta"
+		android:showAsAction="never" />
 	<item android:id="@+id/RecarregarCarta"
 		android:title="@string/RecarregarCarta"
 		android:showAsAction="never" />

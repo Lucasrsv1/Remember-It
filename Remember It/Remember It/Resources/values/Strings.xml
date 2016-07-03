@@ -18,7 +18,10 @@
 	<string name="SalvarCarta">Salvar Carta</string>
 	<string name="ExcluirCarta">Excluir Carta</string>
 	<string name="RecarregarCarta">Recarregar Carta</string>
-
+	<string name="ClonarCarta">Duplicar Carta</string>
+	<string name="CopiarLado">Clonar Outro Lado</string>
+	<string name="InverterLado">Incerter Lados</string>
+	
 	<string name="SalvarBaralho">Salvar Baralho</string>
 	<string name="ExcluirBaralho">Excluir Baralho</string>
 
@@ -28,8 +31,8 @@
 	<string name="EditarVerso">Editar Verso</string>
 	<string name="EditarFrente">Editar Frente</string>
 
-	<string name="Frente">Frente</string>
-	<string name="Verso">Verso</string>
+	<string name="Frente">Resposta</string>
+	<string name="Verso">Dica</string>
 
 	<string name="BackgroundColor">Cor de Fundo</string>
 	<string name="UseAsBackground">Usar como Fundo</string>
@@ -56,6 +59,8 @@
 	<string name="OK">OK</string>
 	<string name="Voltar">Voltar</string>
 	<string name="Cancelar">Cancelar</string>
+	<string name="Salvar">Salvar</string>
+	<string name="NaoSalvar">Não Salvar</string>
 
 	<string name="Width">L:</string>
 	<string name="Height">A:</string>
@@ -63,6 +68,24 @@
 	<string name="ConfirmBackgroundTitle">Usar cor sólida?</string>
 	<string name="ConfirmBackground">Isso vai substituir a imagem do fundo da carta por uma cor sólida.</string>
 
+	<string name="ConfirmLeaveTitle">Salvar antes de sair?</string>
+	<string name="ConfirmLeave">Se você não salvar a carta, todas as alterações serão perdidas.</string>
+
+	<string name="ConfirmRefreshTitle">Recarregar carta?</string>
+	<string name="ConfirmRefresh">Se você não salvar a carta antes de recarregar, todas as alterações serão perdidas.</string>
+
+	<string name="ConfirmExclusionTitle">Excluir carta?</string>
+	<string name="ConfirmExclusion">Tem certeza de que deseja excluir essa carta permanentemente?</string>
+
+	<string name="ConfirmCopyTitle">Copiar o outro lado da carta?</string>
+	<string name="ConfirmCopy">Se prosseguir, este lado da carta ficará idêntico ou outro.</string>
+
+	<string name="ConfirmInvertTitle">Inverter os lados?</string>
+	<string name="ConfirmInvert">Se prosseguir, o lado "Resposta" se tornará o lado "Dica" e vice-versa.</string>
+	
+	<string name="ConfirmCloneTitle">Duplicar carta?</string>
+	<string name="ConfirmClone">Criar uma cópia dessa carta?</string>
+	
 	<string name="Yes">Sim</string>
 	<string name="No">Não</string>
 </resources>

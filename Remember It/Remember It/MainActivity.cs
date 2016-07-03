@@ -10,7 +10,7 @@ using Android.Widget;
 using Android.OS;
 
 namespace Remember_It {
-	[Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity(Label = "@string/ApplicationName", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity {
 		public string appPath;
 		public Baralhos baralho;

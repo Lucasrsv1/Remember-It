@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using SQLite;
 
 namespace Remember_It {
@@ -7,6 +9,18 @@ namespace Remember_It {
 	/// OBS.: a classe não deve ser instanciada e seus métodos são sempre estáticos.
 	/// </summary>
 	static class SGBD {
+		public class OneString {
+			public OneString () {
+				value = "";
+			}
+
+			public OneString (string val) {
+				value = val;
+			}
+
+			public string value { get; set; }
+		}
+
 		private static SQLiteConnection connection = Connect();
 
 		public static SQLiteConnection Connect () {
@@ -56,6 +70,11 @@ namespace Remember_It {
 
 		public static void DeleteBaralho (object baralho_ID) {
 			connection.Delete<Baralhos>(baralho_ID);
+		}
+
+		public static List<string> AcessarTemas () {
+			return (from tema in connection.Query<OneString>("SELECT DISTINCT Tema FROM Baralhos")
+					select tema.value).ToList();
 		}
 	}
 }

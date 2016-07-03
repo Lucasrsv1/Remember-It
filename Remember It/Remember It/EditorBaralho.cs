@@ -12,51 +12,73 @@ using Android.Views;
 using Android.Widget;
 
 namespace Remember_It {
-	[Activity(Label = "@string/Editor")]
+	[Activity(Label = "@string/Editor", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
 	public class EditorBaralho : Activity {
+		private int baralhoID;
 		public bool fav;
 		public string appPath;
 		public Baralhos baralho;
+		public List<string> keys;
 		public List<string> cartas;
 
 		protected override void OnCreate (Bundle savedInstanceState) {
 			base.OnCreate(savedInstanceState);
 
 			// Create your application here
-			SetContentView(Resource.Layout.EditorBaralho);
-
-			ActionBar.SetDisplayHomeAsUpEnabled(true);
-
 			appPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
 
+			SetContentView(Resource.Layout.EditorBaralho);
+			ActionBar.SetDisplayHomeAsUpEnabled(true);
+
+			baralhoID = Intent.GetIntExtra("Baralho_ID", -1);
+			FindViewById<ListView>(Resource.Id.CartasView).ItemClick += ItemClicked;
+
+			LoadPack();
+		}
+
+		public void LoadPack () {
 			try {
-				baralho = SGBD.AcessarBaralho(Intent.GetIntExtra("Baralho_ID", -1));
+				baralho = SGBD.AcessarBaralho(baralhoID);
 
 				FindViewById<EditText>(Resource.Id.tema).Text = baralho.Tema;
 				FindViewById<EditText>(Resource.Id.titulo).Text = baralho.Titulo;
 				FindViewById<EditText>(Resource.Id.autor).Text = baralho.Autor;
+				FindViewById<TextView>(Resource.Id.NCartas).Text = GetString(Resource.String.NCartas) + " " + baralho.NCartas.ToString();
 				fav = baralho.Favorito;
 
+				keys = new List<string>();
 				cartas = new List<string>();
-
+				
 				try {
 					using (XmlReader xmlR = XmlReader.Create(Path.Combine(appPath, baralho.Cartas))) {
 						while (xmlR.Read()) {
 							if (xmlR.IsStartElement("Carta")) {
+								keys.Add(xmlR["id"]);
 								cartas.Add(xmlR["name"]);
 							}
 						}
 
 						xmlR.Close();
 					}
-				} catch {
-					Toast.MakeText(this, "Erro ao ler as cartas do baralho.", ToastLength.Long).Show();
+				} catch (Exception err) {
+					Toast.MakeText(this, "Erro ao ler as cartas do baralho." + err.Message, ToastLength.Long).Show();
 				}
-
-				FindViewById<TextView>(Resource.Id.NCartas).Text = Resources.GetString(Resource.String.NCartas) + " " + cartas.Count.ToString();
+				
+				FindViewById<ListView>(Resource.Id.CartasView).Adapter = new CardsManager(cartas, this);
 			} catch (Exception err) {
 				Toast.MakeText(this, "! " + err.Message, ToastLength.Long).Show();
 			}
+		}
+
+		public void ItemClicked (object sender, AdapterView.ItemClickEventArgs e) {
+			Intent intent = new Intent(this, typeof(EditorCarta));
+			intent.PutExtra("Baralho_ID", baralho.ID);
+			intent.PutExtra("BaralhoFileName", baralho.Cartas);
+			intent.PutExtra("Card_ID", int.Parse(keys[e.Position]));
+			Toast.MakeText(this, "ID_CARTA: " + keys[e.Position], ToastLength.Long).Show();
+			intent.PutExtra("Side", "Frente");
+			intent.PutExtra("AppPath", appPath);
+			StartActivity(intent);
 		}
 
 		public XElement NewCard (int nextCard) {
@@ -78,6 +100,12 @@ namespace Remember_It {
 			card.Add(back);
 
 			return card;
+		}
+
+		protected override void OnRestart () {
+			base.OnRestart();
+
+			LoadPack();
 		}
 
 		public override bool OnCreateOptionsMenu (IMenu menu) {
@@ -103,11 +131,16 @@ namespace Remember_It {
 						cartasXML.Save(xmlDir);
 
 						Intent intent = new Intent(this, typeof(EditorCarta));
+						intent.PutExtra("Baralho_ID", baralho.ID);
 						intent.PutExtra("BaralhoFileName", baralho.Cartas);
 						intent.PutExtra("Card_ID", nextCard);
 						intent.PutExtra("Side", "Frente");
 						intent.PutExtra("AppPath", appPath);
 						StartActivity(intent);
+
+						baralho.NCartas++;
+						SGBD.UpdateBaralho(baralho);
+						Toast.MakeText(this, "Carta adicionada ao baralho.", ToastLength.Long).Show();
 					} catch (Exception err) {
 						Toast.MakeText(this, "3! " + err.Message, ToastLength.Long).Show();
 					}
@@ -127,6 +160,8 @@ namespace Remember_It {
 					break;
 				case Resource.Id.ExcluirBaralho:
 					try {
+						Directory.Delete(Path.Combine(appPath, baralho.Cartas.Replace(".lrv", " Resources")), true);
+
 						string filePath = Path.Combine(appPath, baralho.Cartas);
 						File.Delete(filePath);
 						SGBD.DeleteBaralho(baralho.ID);
@@ -142,7 +177,6 @@ namespace Remember_It {
 			}
 
 			return true;
-
 		}
 	}
 }
