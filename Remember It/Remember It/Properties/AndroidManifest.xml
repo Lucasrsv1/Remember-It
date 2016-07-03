@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Remember_It.Remember_It" android:versionCode="1" android:versionName="1.0">
 	<uses-sdk android:targetSdkVersion="15" android:minSdkVersion="15" />
-	<application android:label="Remember_It"></application>
+	<application android:label="Remember_It"
+					 android:theme="@android:style/Theme.Holo.Light"></application>
 </manifest>

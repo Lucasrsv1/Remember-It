@@ -318,12 +318,21 @@
                     p1:layout_width="77.0dp"
                     p1:layout_height="35dp"
                     p1:id="@+id/confirmColor"
-                    p1:layout_marginLeft="5.0dp" />
+                    p1:layout_marginLeft="5.0dp"
+                    p1:textColor="#4A148C"
+                    p1:background="#F3E5F5"
+                    p1:textStyle="bold"
+                    p1:typeface="sans" />
                 <Button
                     p1:text="@string/Voltar"
                     p1:layout_width="77.0dp"
                     p1:layout_height="35dp"
-                    p1:id="@+id/cancelColor" />
+                    p1:id="@+id/cancelColor"
+                    p1:textColor="#4A148C"
+                    p1:background="#F3E5F5"
+                    p1:layout_marginLeft="5dp"
+                    p1:typeface="sans"
+                    p1:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

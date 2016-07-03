@@ -20,7 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView1"
-                android:layout_marginTop="10.0dp" />
+                android:layout_marginTop="10.0dp"
+                android:textStyle="bold" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,7 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2"
-                android:layout_marginTop="10.0dp" />
+                android:layout_marginTop="10.0dp"
+                android:textStyle="bold" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +46,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
-                android:layout_marginTop="10.0dp" />
+                android:layout_marginTop="10.0dp"
+                android:textStyle="bold" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,7 +59,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/NCartas"
-                android:layout_marginTop="20.0dp" />
+                android:layout_marginTop="20.0dp"
+                android:typeface="sans"
+                android:textStyle="bold" />
             <LinearLayout
                 android:orientation="horizontal"
                 android:minWidth="25px"
