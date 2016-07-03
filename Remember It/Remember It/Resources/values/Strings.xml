@@ -3,11 +3,13 @@
     <string name="ApplicationName">Remember It</string>
 	<string name="Editor">Editor de Baralhos</string>
 	<string name="EditorCartas">Editor de Cartas</string>
-	
 
 	<string name="Criar">Criar Baralho</string>
 	<string name="Editar">Editar Baralho</string>
+	<string name="Estatisticas">Estatísticas</string>
 	<string name="Sair">Sair</string>
+	<string name="ThemeGroup">Agrupar por tema</string>
+	<string name="PackGroup">Agrupar por baralho</string>
 	
 	<string name="Titulo">Título:</string>
 	<string name="Tema">Tema:</string>
@@ -20,7 +22,7 @@
 	<string name="RecarregarCarta">Recarregar Carta</string>
 	<string name="ClonarCarta">Duplicar Carta</string>
 	<string name="CopiarLado">Clonar Outro Lado</string>
-	<string name="InverterLado">Incerter Lados</string>
+	<string name="InverterLado">Inverter Lados</string>
 	
 	<string name="SalvarBaralho">Salvar Baralho</string>
 	<string name="ExcluirBaralho">Excluir Baralho</string>

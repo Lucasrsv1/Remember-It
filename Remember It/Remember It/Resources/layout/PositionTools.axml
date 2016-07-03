@@ -22,13 +22,16 @@
             p1:layout_height="55dp"
             p1:id="@+id/textView1"
             p1:gravity="center_vertical"
-            p1:textSize="20dp" />
+            p1:textSize="20dp"
+            p1:typeface="sans"
+            p1:textColor="#4A148C" />
         <EditText
             p1:layout_width="80dp"
             p1:layout_height="55dp"
             p1:id="@+id/x"
             p1:textSize="20dp"
             p1:layout_marginLeft="10.0dp"
+            p1:textColor="#4A148C"
             p1:inputType="number" />
         <Button
             p1:text="+"
@@ -37,14 +40,23 @@
             p1:id="@+id/plusX"
             p1:layout_marginLeft="10dp"
             p1:layout_marginTop="3dp"
-            p1:textSize="16dp" />
+            p1:textSize="18dp"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C"
+            p1:background="#F3E5F5" />
         <Button
             p1:text="-"
             p1:layout_width="44dp"
             p1:layout_height="44dp"
             p1:id="@+id/lessX"
             p1:layout_marginTop="3dp"
-            p1:textSize="16dp" />
+            p1:textSize="18dp"
+            p1:textColor="#4A148C"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:background="#F3E5F5"
+            p1:layout_marginLeft="3dp" />
         <TextView
             p1:text="Z:"
             p1:textAppearance="?android:attr/textAppearanceLarge"
@@ -53,14 +65,17 @@
             p1:id="@+id/textView3"
             p1:gravity="center_vertical"
             p1:textSize="20dp"
-            p1:layout_marginLeft="10dp" />
+            p1:layout_marginLeft="10dp"
+            p1:typeface="sans"
+            p1:textColor="#4A148C" />
         <EditText
             p1:layout_width="100dp"
             p1:layout_height="55dp"
             p1:id="@+id/z"
             p1:textSize="20dp"
-            p1:layout_marginLeft="10.0dp"
-            p1:inputType="number" />
+            p1:layout_marginLeft="13.0dp"
+            p1:inputType="number"
+            p1:textColor="#4A148C" />
     </LinearLayout>
     <LinearLayout
         p1:orientation="horizontal"
@@ -76,14 +91,17 @@
             p1:layout_height="55dp"
             p1:id="@+id/textView2"
             p1:gravity="center_vertical"
-            p1:textSize="20dp" />
+            p1:textSize="20dp"
+            p1:typeface="sans"
+            p1:textColor="#4A148C" />
         <EditText
             p1:layout_width="80dp"
             p1:layout_height="55dp"
             p1:id="@+id/y"
             p1:textSize="20dp"
             p1:layout_marginLeft="10.0dp"
-            p1:inputType="number" />
+            p1:inputType="number"
+            p1:textColor="#4A148C" />
         <Button
             p1:text="+"
             p1:layout_width="44dp"
@@ -91,26 +109,46 @@
             p1:id="@+id/plusY"
             p1:layout_marginLeft="10dp"
             p1:layout_marginTop="3dp"
-            p1:textSize="16dp" />
+            p1:textSize="18dp"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C"
+            p1:background="#F3E5F5" />
         <Button
             p1:text="-"
             p1:layout_width="44dp"
             p1:layout_height="44dp"
             p1:id="@+id/lessY"
             p1:layout_marginTop="3dp"
-            p1:textSize="16dp" />
+            p1:textSize="18dp"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C"
+            p1:background="#F3E5F5"
+            p1:layout_marginLeft="3dp" />
         <Button
             p1:text="@string/Voltar"
-            p1:layout_width="70dp"
-            p1:layout_height="55dp"
+            p1:layout_width="67dp"
+            p1:layout_height="44dp"
+            p1:layout_marginTop="3dp"
             p1:id="@+id/voltar"
-            p1:textSize="12dp"
-            p1:layout_marginLeft="5.0dp" />
+            p1:textSize="18dp"
+            p1:layout_marginLeft="5.0dp"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C"
+            p1:background="#F3E5F5" />
         <Button
             p1:text="@string/OK"
-            p1:layout_width="70dp"
-            p1:layout_height="55dp"
+            p1:layout_width="66dp"
+            p1:layout_height="44dp"
+            p1:layout_marginTop="3dp"
             p1:id="@+id/confirmPos"
-            p1:textSize="12dp" />
+            p1:textSize="18dp"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C"
+            p1:background="#F3E5F5"
+            p1:layout_marginLeft="3dp" />
     </LinearLayout>
 </GridLayout>

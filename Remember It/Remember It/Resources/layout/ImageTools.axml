@@ -17,16 +17,26 @@
         p1:id="@+id/linearLayout1">
         <Button
             p1:text="@string/BackgroundColor"
-            p1:layout_width="175dp"
+            p1:layout_width="167dp"
             p1:layout_height="55dp"
             p1:id="@+id/ImageBackground"
-            p1:textSize="16dp" />
+            p1:textSize="18dp"
+            p1:background="#F3E5F5"
+            p1:layout_margin="5dp"
+            p1:textColor="#4A148C"
+            p1:textStyle="bold"
+            p1:typeface="sans" />
         <Button
             p1:text="@string/TrocarImg"
-            p1:layout_width="175dp"
+            p1:layout_width="167dp"
             p1:layout_height="55dp"
             p1:id="@+id/changeImg"
-            p1:textSize="16dp" />
+            p1:textSize="18dp"
+            p1:background="#F3E5F5"
+            p1:layout_margin="5dp"
+            p1:textStyle="bold"
+            p1:typeface="normal"
+            p1:textColor="#4A148C" />
     </LinearLayout>
     <LinearLayout
         p1:orientation="horizontal"
@@ -42,20 +52,30 @@
             p1:layout_height="55dp"
             p1:id="@+id/textView2"
             p1:gravity="center_vertical"
-            p1:textSize="20dp" />
+            p1:textSize="20dp"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C"
+            p1:layout_marginLeft="5dp" />
         <Spinner
             p1:layout_width="145dp"
             p1:layout_height="45dp"
             p1:id="@+id/scale"
             p1:textSize="20dp"
             p1:layout_marginLeft="10dp"
-            p1:layout_marginTop="5dp" />
+            p1:layout_marginTop="5dp"
+            p1:textColor="#4A148C"
+            p1:background="#F3E5F5" />
         <Button
             p1:text="@string/Duplicar"
             p1:layout_width="115dp"
             p1:layout_height="55dp"
             p1:id="@+id/duplicar"
-            p1:textSize="16dp"
-            p1:layout_marginLeft="15dp" />
+            p1:textSize="18dp"
+            p1:layout_marginLeft="20dp"
+            p1:background="#F3E5F5"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C" />
     </LinearLayout>
 </GridLayout>

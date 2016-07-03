@@ -7,12 +7,11 @@ using System.Xml.Linq;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
 namespace Remember_It {
-	[Activity(Label = "@string/Editor", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
+	[Activity(Label = "@string/Editor", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, Theme = "@style/CustomActionBarTheme")]
 	public class EditorBaralho : Activity {
 		private int baralhoID;
 		public bool fav;
@@ -75,7 +74,6 @@ namespace Remember_It {
 			intent.PutExtra("Baralho_ID", baralho.ID);
 			intent.PutExtra("BaralhoFileName", baralho.Cartas);
 			intent.PutExtra("Card_ID", int.Parse(keys[e.Position]));
-			Toast.MakeText(this, "ID_CARTA: " + keys[e.Position], ToastLength.Long).Show();
 			intent.PutExtra("Side", "Frente");
 			intent.PutExtra("AppPath", appPath);
 			StartActivity(intent);

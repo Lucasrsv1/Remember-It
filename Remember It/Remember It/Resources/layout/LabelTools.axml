@@ -22,12 +22,16 @@
             p1:layout_height="55dp"
             p1:id="@+id/textView1"
             p1:gravity="center_vertical"
-            p1:textSize="20dp" />
+            p1:textSize="20dp"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C" />
         <AutoCompleteTextView
             p1:layout_width="150dp"
             p1:layout_height="55dp"
             p1:id="@+id/fontSize"
             p1:textSize="20dp"
+            p1:textColor="#4A148C"
             p1:layout_marginLeft="10dp"
             p1:inputType="number" />
         <Button
@@ -38,7 +42,9 @@
             p1:textStyle="bold"
             p1:textSize="20dp"
             p1:layout_marginLeft="20dp"
-            p1:background="#696969" />
+            p1:background="#F0DFEE"
+            p1:typeface="sans"
+            p1:textColor="#4A148C" />
         <Button
             p1:text="@string/Itálico"
             p1:layout_width="45dp"
@@ -47,7 +53,9 @@
             p1:textStyle="italic"
             p1:textSize="20dp"
             p1:layout_marginLeft="15dp"
-            p1:background="#696969" />
+            p1:background="#F0DFEE"
+            p1:textColor="#4A148C"
+            p1:typeface="sans" />
     </LinearLayout>
     <LinearLayout
         p1:orientation="horizontal"
@@ -63,20 +71,29 @@
             p1:layout_height="55dp"
             p1:id="@+id/textView2"
             p1:gravity="center_vertical"
-            p1:textSize="20dp" />
+            p1:textSize="20dp"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C" />
         <Spinner
             p1:layout_width="150dp"
             p1:layout_height="45dp"
             p1:id="@+id/align"
             p1:textSize="20dp"
             p1:layout_marginLeft="10dp"
-            p1:layout_marginTop="5dp" />
+            p1:layout_marginTop="5dp"
+            p1:textColor="#4A148C"
+            p1:background="#F3E5F5" />
         <Button
             p1:text="@string/Duplicar"
             p1:layout_width="115dp"
             p1:layout_height="55dp"
             p1:id="@+id/duplicar"
-            p1:textSize="16dp"
-            p1:layout_marginLeft="15dp" />
+            p1:textSize="18dp"
+            p1:layout_marginLeft="15dp"
+            p1:background="#F3E5F5"
+            p1:textColor="#4A148C"
+            p1:textStyle="bold"
+            p1:typeface="sans" />
     </LinearLayout>
 </GridLayout>

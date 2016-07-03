@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
+        android:textColor="#4A148C"
         android:layout_marginTop="10.0dp" />
     <EditText
         android:layout_width="match_parent"
@@ -24,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
+        android:textColor="#4A148C"
         android:layout_marginTop="10.0dp" />
     <EditText
         android:layout_width="match_parent"
@@ -36,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
+        android:textColor="#4A148C"
         android:layout_marginTop="10.0dp" />
     <EditText
         android:layout_width="match_parent"
@@ -48,11 +51,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/NCartas"
-        android:layout_marginTop="20.0dp" />
+        android:textColor="#4A148C"
+        android:layout_marginTop="20.0dp"
+        android:typeface="sans" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/CartasView" />
+        android:id="@+id/CartasView"
+        android:layout_marginTop="10.0dp" />
 </LinearLayout>

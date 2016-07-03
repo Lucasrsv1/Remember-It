@@ -4,13 +4,12 @@ using System.Xml;
 
 using Android.App;
 using Android.Content;
-using Android.Runtime;
+using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Android.OS;
 
 namespace Remember_It {
-	[Activity(Label = "@string/ApplicationName", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity(Label = "@string/ApplicationName", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/CustomActionBarTheme")]
 	public class MainActivity : Activity {
 		public string appPath;
 		public Baralhos baralho;
@@ -64,7 +63,7 @@ namespace Remember_It {
 
 			baralho = new Baralhos(baralhoFileName);
 			SGBD.AdicionarBaralho(baralho);
-			
+
 			Directory.CreateDirectory(Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources")));
 
 			using (XmlWriter xmlW = XmlWriter.Create(Path.Combine(appPath, baralhoFileName))) {
@@ -86,6 +85,24 @@ namespace Remember_It {
 		public void EditarBaralho (object sender, EventArgs e) {
 			//Change to "choose for edit" mode.
 			Toast.MakeText(this, "Not implemented functionality.", ToastLength.Long).Show();
+		}
+
+		public override bool OnCreateOptionsMenu (IMenu menu) {
+			MenuInflater.Inflate(Resource.Menu.MainActivityMenu, menu);
+			return base.OnCreateOptionsMenu(menu);
+		}
+
+		public override bool OnOptionsItemSelected (IMenuItem item) {
+			switch (item.ItemId) {
+				case Resource.Id.ThemeGroup:
+					break;
+				case Resource.Id.PackGroup:
+					break;
+				default:
+					return base.OnOptionsItemSelected(item);
+			}
+
+			return true;
 		}
 	}
 }

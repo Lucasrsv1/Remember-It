@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -46,7 +45,7 @@ namespace Remember_It {
 		}
 	}
 
-	[Activity(Label = "@string/EditorCartas", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
+	[Activity(Label = "@string/EditorCartas", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, Theme = "@style/CustomActionBarTheme")]
 	public class EditorCarta : Activity, IDialogInterfaceOnClickListener {
 		private int cardID;
 		private string side;
@@ -63,10 +62,12 @@ namespace Remember_It {
 
 		private int request;
 		private int requestAlert;
+		private int currentDialog;
 		private bool shown;
 		private bool shown2;
 		private Color originalColor;
 		private List<string> toDelete;
+		private List<string> notSavedImages;
 		private List<Bitmap> images;
 		private RelativeLayout.LayoutParams originalLayout;
 
@@ -80,6 +81,7 @@ namespace Remember_It {
 
 			images = new List<Bitmap>();
 			toDelete = new List<string>();
+			notSavedImages = new List<string>();
 
 			baralho = SGBD.AcessarBaralho(Intent.GetIntExtra("Baralho_ID", -1));
 			cardID = Intent.GetIntExtra("Card_ID", -1);
@@ -95,13 +97,27 @@ namespace Remember_It {
 			relativeLayout = FindViewById<RelativeLayout>(Resource.Id.relativeLayout1);
 
 			carta.Click += Unselect;
-			relativeLayout.Click += Unselect;
-			FindViewById<LinearLayout>(Resource.Id.linearLayout0).Click += Unselect;
 
-			Read(Intent.GetBooleanExtra("Copying", false) ? ((side == "Frente") ? "Verso" : "Frente") : side);
+			Read(Intent.GetBooleanExtra("Copying", false) ? ((side == "Frente") ? "Verso" : "Frente") : side, Intent.GetBooleanExtra("Copying", false));
 		}
 
-		public void Read (string side) {
+		public void Read (string side, bool copy = false) {
+			int length, toAdd = 0;
+			string imgSrc, path, copied, extension;
+			string fileDir = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), "img.length");
+			Dictionary<string, string> srcCopied = new Dictionary<string, string>();
+
+			if (File.Exists(fileDir)) {
+				StreamReader sr = new StreamReader(fileDir);
+				int.TryParse(sr.ReadToEnd(), out length);
+				sr.Close();
+			} else {
+				length = 0;
+				StreamWriter sw = File.CreateText(fileDir);
+				sw.Write(0);
+				sw.Close();
+			}
+
 			using (XmlReader xmlR = XmlReader.Create(xmlDir)) {
 				while (xmlR.Read()) {
 					if (xmlR.IsStartElement("Carta")) {
@@ -122,6 +138,35 @@ namespace Remember_It {
 								string cardSrc = xmlR["src"];
 
 								if (cardSrc.Length > 0) {
+									if (copy) {
+										imgSrc = "";
+										foreach (KeyValuePair<string, string> src in srcCopied) {
+											if (cardSrc == src.Key) {
+												imgSrc = src.Value;
+											}
+										}
+
+										if (imgSrc == "") {
+											try {
+												extension = cardSrc.Substring(cardSrc.LastIndexOf("."));
+											} catch {
+												extension = ".png";
+											}
+
+											imgSrc = "img-" + cardID + "." + (length + toAdd) + extension;
+
+											path = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), cardSrc);
+											copied = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), imgSrc);
+
+											File.Copy(path, copied);
+
+											srcCopied.Add(cardSrc, imgSrc);
+											toAdd++;
+										}
+
+										cardSrc = imgSrc;
+									}
+
 									Bitmap image;
 									try {
 										string file = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), cardSrc);
@@ -142,10 +187,8 @@ namespace Remember_It {
 									if (image != null) {
 										carta.Background = new BitmapDrawable(image);
 										carta.SetTag(Resource.Id.imgSrc, cardSrc);
-										Toast.MakeText(this, "SRC: " + cardSrc, ToastLength.Short).Show();
 									} else {
 										carta.SetTag(Resource.Id.imgSrc, "");
-										Toast.MakeText(this, cardSrc + " não encontrado.", ToastLength.Long).Show();
 									}
 								}
 
@@ -183,7 +226,7 @@ namespace Remember_It {
 													//Aplica as configurações no novo EditText
 													newLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, fontS);
 													newLabel.SetText(text, TextView.BufferType.Editable);
-													newLabel.SetTypeface(newLabel.Typeface, GetTypeFace(style));
+													newLabel.SetTypeface(Typeface.SansSerif, GetTypeFace(style));
 													newLabel.Gravity = GetAlign(gravity);
 													newLabel.LayoutParameters = layoutT;
 													newLabel.SetTextColor(color);
@@ -200,12 +243,41 @@ namespace Remember_It {
 											case "Image":
 												try {
 													//Lê as configurações dos atributos da Imagem no XML
-													string src = xmlR["src"];
+													string srcI = xmlR["src"];
 													Bitmap image;
 
-													if (src.Length > 0) {
+													if (srcI.Length > 0) {
+														if (copy) {
+															imgSrc = "";
+															foreach (KeyValuePair<string, string> src in srcCopied) {
+																if (srcI == src.Key) {
+																	imgSrc = src.Value;
+																}
+															}
+
+															if (imgSrc == "") {
+																try {
+																	extension = srcI.Substring(srcI.LastIndexOf("."));
+																} catch {
+																	extension = ".png";
+																}
+
+																imgSrc = "img-" + cardID + "." + (length + toAdd) + extension;
+
+																path = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), srcI);
+																copied = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), imgSrc);
+
+																File.Copy(path, copied);
+
+																srcCopied.Add(srcI, imgSrc);
+																toAdd++;
+															}
+
+															srcI = imgSrc;
+														}
+
 														try {
-															string file = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), src);
+															string file = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), srcI);
 
 															BitmapFactory.Options options = new BitmapFactory.Options();
 															options.InJustDecodeBounds = true;
@@ -217,7 +289,7 @@ namespace Remember_It {
 															image = BitmapFactory.DecodeFile(file, options);
 															images.Add(image);
 														} catch {
-															Toast.MakeText(this, src + " não encontrado.", ToastLength.Long).Show();
+															Toast.MakeText(this, srcI + " não encontrado.", ToastLength.Long).Show();
 															image = null;
 															continue;
 														}
@@ -240,8 +312,9 @@ namespace Remember_It {
 
 													if (image != null) {
 														newImage.SetImageBitmap(image);
-														newImage.SetTag(Resource.Id.imgSrc, src);
-														Toast.MakeText(this, "SRC: " + src, ToastLength.Short).Show();
+														newImage.SetTag(Resource.Id.imgSrc, srcI);
+														if (copy) 
+															notSavedImages.Add(srcI);
 													} else {
 														newImage.SetImageResource(Android.Resource.Color.Transparent);
 														newImage.SetTag(Resource.Id.imgSrc, "");
@@ -270,6 +343,12 @@ namespace Remember_It {
 					}
 				}
 			}
+
+			if (toAdd > 0) {
+				StreamWriter sw = new StreamWriter(fileDir);
+				sw.Write(length + toAdd);
+				sw.Close();
+			}
 		}
 
 		public void SaveCard (int nextAction = -1) {
@@ -277,7 +356,7 @@ namespace Remember_It {
 				string res = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"));
 
 				XDocument cartasXML = XDocument.Load(xmlDir);
-				XElement xCarta = (from card in cartasXML.Elements("Cartas").Elements("Carta")
+				XElement xCarta = (from card in cartasXML.Element("Cartas").Elements("Carta")
 								  where card.Attribute("id").Value == cardID.ToString()
 								  select card).ToArray()[0];
 
@@ -345,7 +424,8 @@ namespace Remember_It {
 						editing.Add(newText);
 					}
 				}
-				
+
+				notSavedImages.Clear();
 				cartasXML.Save(xmlDir);
 				Toast.MakeText(this, "Carta salva com sucesso!", ToastLength.Short).Show();
 			} catch (Exception err) {
@@ -371,7 +451,7 @@ namespace Remember_It {
 		public void InvertSides () {
 			try {
 				XDocument cartasXML = XDocument.Load(xmlDir);
-				XElement xCarta = (from card in cartasXML.Elements("Cartas").Elements("Carta")
+				XElement xCarta = (from card in cartasXML.Element("Cartas").Elements("Carta")
 								   where card.Attribute("id").Value == cardID.ToString()
 								   select card).ToArray()[0];
 
@@ -381,7 +461,7 @@ namespace Remember_It {
 				oldFront.Name = "Verso";
 				oldBack.Name = "Frente";
 
-				xCarta.Save(xmlDir);
+				cartasXML.Save(xmlDir);
 
 				ReadInNewActivity(side);
 				Toast.MakeText(this, "Lados invertidos.", ToastLength.Long).Show();
@@ -392,23 +472,84 @@ namespace Remember_It {
 
 		public void CloneCard () {
 			try {
+				int length, toAdd = 0;
+				string imgSrc, path, copied, extension, reqSrc;
+				string fileDir = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), "img.length");
+				Dictionary<string, string> srcCopied = new Dictionary<string, string>();
+
+				if (File.Exists(fileDir)) {
+					StreamReader sr = new StreamReader(fileDir);
+					int.TryParse(sr.ReadToEnd(), out length);
+					sr.Close();
+				} else {
+					length = 0;
+					StreamWriter sw = File.CreateText(fileDir);
+					sw.Write(0);
+					sw.Close();
+				}
+
 				XDocument cartasXML = XDocument.Load(xmlDir);
-				XElement xCartaClone = new XElement((from card in cartasXML.Elements("Cartas").Elements("Carta")
-								   where card.Attribute("id").Value == cardID.ToString()
-								   select card).ToArray()[0]);
+				XElement xCartaClone = new XElement((from card in cartasXML.Element("Cartas").Elements("Carta")
+													 where card.Attribute("id").Value == cardID.ToString()
+													 select card).ToArray()[0]);
 
 				int nextCard = -1;
 				int.TryParse(cartasXML.Element("Cartas").Element("Next").Value, out nextCard);
 
 				xCartaClone.SetAttributeValue("id", nextCard);
 
+				XElement[] xImages = (from img in xCartaClone.Descendants("Image").Concat(xCartaClone.Elements())
+									  select img).ToArray();
+				
+				foreach (XElement img in xImages) {
+					reqSrc = img.Attribute("src").Value;
+					if (reqSrc.Length == 0)
+						continue;
+
+					imgSrc = "";
+					foreach (KeyValuePair<string, string> src in srcCopied) {
+						if (reqSrc == src.Key) {
+							imgSrc = src.Value;
+						}
+					}
+
+					if (imgSrc == "") {
+						try {
+							extension = reqSrc.Substring(reqSrc.LastIndexOf("."));
+						} catch {
+							extension = ".png";
+						}
+
+						imgSrc = "img-" + nextCard + "." + (length + toAdd) + extension;
+
+						path = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), reqSrc);
+						copied = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), imgSrc);
+
+						File.Copy(path, copied);
+
+						srcCopied.Add(reqSrc, imgSrc);
+						toAdd++;
+					}
+
+					img.SetAttributeValue("src", imgSrc);
+				}
+
 				cartasXML.Element("Cartas").Add(xCartaClone);
 				cartasXML.Element("Cartas").Element("Next").Value = (nextCard + 1).ToString();
 				cartasXML.Save(xmlDir);
 
+				if (toAdd > 0) {
+					StreamWriter sw = new StreamWriter(fileDir);
+					sw.Write(length + toAdd);
+					sw.Close();
+				}
+
+				baralho.NCartas++;
+				SGBD.UpdateBaralho(baralho);
 				Toast.MakeText(this, "Carta clonada com sucesso.", ToastLength.Short).Show();
 
 				Intent intent = new Intent(this, typeof(EditorCarta));
+				intent.PutExtra("Baralho_ID", baralho.ID);
 				intent.PutExtra("BaralhoFileName", baralhoFileName);
 				intent.PutExtra("Card_ID", nextCard);
 				intent.PutExtra("Side", side);
@@ -423,10 +564,24 @@ namespace Remember_It {
 
 		public void DeleteCard () {
 			try {
+				string imgSrc;
 				XDocument cartasXML = XDocument.Load(xmlDir);
-				XElement xCarta = (from card in cartasXML.Elements("Cartas").Elements("Carta")
+				XElement xCarta = (from card in cartasXML.Element("Cartas").Elements("Carta")
 								   where card.Attribute("id").Value == cardID.ToString()
 								   select card).ToArray()[0];
+
+				string[] xImages = (from img in xCarta.Descendants("Image").Concat(xCarta.Elements())
+									  select img.Attribute("src").Value).ToArray();
+
+				foreach (string img in xImages) {
+					if (img.Length != 0) {
+						imgSrc = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), img);
+
+						if (File.Exists(imgSrc)) {
+							File.Delete(imgSrc);
+						}
+					}
+				}
 
 				xCarta.Remove();
 				cartasXML.Save(xmlDir);
@@ -449,12 +604,14 @@ namespace Remember_It {
 
 		public void ReadInNewActivity (string reqSide, bool copying = false) {
 			Intent intent = new Intent(this, typeof(EditorCarta));
+			intent.PutExtra("Baralho_ID", baralho.ID);
 			intent.PutExtra("BaralhoFileName", baralhoFileName);
 			intent.PutExtra("Card_ID", cardID);
 			intent.PutExtra("Side", reqSide);
 			intent.PutExtra("AppPath", appPath);
 			intent.PutExtra("Copying", copying);
 			StartActivity(intent);
+			OverridePendingTransition(0, 0);
 
 			Finish();
 		}
@@ -529,7 +686,7 @@ namespace Remember_It {
 			//Aplica as configurações no novo ImageView
 			newImage.SetImageBitmap(img);
 			newImage.SetTag(Resource.Id.imgSrc, src);
-			Toast.MakeText(this, "SRC: " + src, ToastLength.Short).Show();
+			notSavedImages.Add(src);
 			newImage.SetScaleType(ImageView.ScaleType.FitXy);
 			newImage.LayoutParameters = layoutI;
 			newImage.SetBackgroundColor(Color.Transparent);
@@ -687,7 +844,6 @@ namespace Remember_It {
 					//Copia as configurações para o novo ImageView
 					newImage.SetImageBitmap(newBitmap);
 					newImage.SetTag(Resource.Id.imgSrc, selected.GetTag(Resource.Id.imgSrc));
-					Toast.MakeText(this, "SRC: " + selected.GetTag(Resource.Id.imgSrc), ToastLength.Short).Show();
 					newImage.SetScaleType(image.GetScaleType());
 					newImage.LayoutParameters = layoutI;
 					newImage.SetBackgroundColor(((ColorDrawable) image.Background).Color);
@@ -696,8 +852,6 @@ namespace Remember_It {
 
 					carta.AddView(newImage);
 					SelectI(newImage, null);
-
-					Toast.MakeText(this, "Duplicado.", ToastLength.Short).Show();
 				} else {
 					EditText label = (EditText) selected;
 					EditText newLabel = new EditText(carta.Context);
@@ -722,8 +876,6 @@ namespace Remember_It {
 
 					carta.AddView(newLabel);
 					SelectT(newLabel, null);
-
-					Toast.MakeText(this, "Duplicado.", ToastLength.Short).Show();
 				}
 			}
 		}
@@ -752,20 +904,20 @@ namespace Remember_It {
 
 				switch (label.Typeface.Style) {
 					case TypefaceStyle.Bold:
-						label.SetTypeface(Typeface.Default, TypefaceStyle.Normal);
-						clicked.SetBackgroundColor(Color.DimGray);
+						label.SetTypeface(Typeface.SansSerif, TypefaceStyle.Normal);
+						clicked.SetBackgroundColor(new Color(240, 223, 238)); //Disable
 						break;
 					case TypefaceStyle.BoldItalic:
 						label.SetTypeface(label.Typeface, TypefaceStyle.Italic);
-						clicked.SetBackgroundColor(Color.DimGray);
+						clicked.SetBackgroundColor(new Color(240, 223, 238)); //Disable
 						break;
 					case TypefaceStyle.Italic:
 						label.SetTypeface(label.Typeface, TypefaceStyle.BoldItalic);
-						clicked.SetBackgroundColor(new Color(68, 119, 255));
+						clicked.SetBackgroundColor(new Color(255, 235, 255)); //Enable
 						break;
 					case TypefaceStyle.Normal:
 						label.SetTypeface(label.Typeface, TypefaceStyle.Bold);
-						clicked.SetBackgroundColor(new Color(68, 119, 255));
+						clicked.SetBackgroundColor(new Color(255, 235, 255)); //Enable
 						break;
 				}
 			}
@@ -779,19 +931,19 @@ namespace Remember_It {
 				switch (label.Typeface.Style) {
 					case TypefaceStyle.Bold:
 						label.SetTypeface(label.Typeface, TypefaceStyle.BoldItalic);
-						clicked.SetBackgroundColor(new Color(68, 119, 255));
+						clicked.SetBackgroundColor(new Color(255, 235, 255));
 						break;
 					case TypefaceStyle.BoldItalic:
 						label.SetTypeface(label.Typeface, TypefaceStyle.Bold);
-						clicked.SetBackgroundColor(Color.DimGray);
+						clicked.SetBackgroundColor(new Color(240, 223, 238));
 						break;
 					case TypefaceStyle.Italic:
-						label.SetTypeface(Typeface.Default, TypefaceStyle.Normal);
-						clicked.SetBackgroundColor(Color.DimGray);
+						label.SetTypeface(Typeface.SansSerif, TypefaceStyle.Normal);
+						clicked.SetBackgroundColor(new Color(240, 223, 238));
 						break;
 					case TypefaceStyle.Normal:
 						label.SetTypeface(label.Typeface, TypefaceStyle.Italic);
-						clicked.SetBackgroundColor(new Color(68, 119, 255));
+						clicked.SetBackgroundColor(new Color(255, 235, 255));
 						break;
 				}
 			}
@@ -863,7 +1015,7 @@ namespace Remember_It {
 			}
 		}
 
-		public void CancelColor (object sender, EventArgs e) {
+		public void CancelColor (object sender = null, EventArgs e = null) {
 			//Voltar ao original
 			if (request == 1)
 				((EditText) selected).SetTextColor(originalColor);
@@ -873,6 +1025,7 @@ namespace Remember_It {
 				carta.SetBackgroundColor(originalColor);
 
 			request = 0;
+			currentDialog = 0;
 			InvalidateOptionsMenu();
 		}
 
@@ -1035,6 +1188,7 @@ namespace Remember_It {
 				//Dialog
 				FindViewById<Button>(Resource.Id.cancelColor).Click += CancelColor;
 				FindViewById<Button>(Resource.Id.confirmColor).Click += ConfirmColor;
+				currentDialog = 1;
 			} catch (Exception err) {
 				Toast.MakeText(this, "2!: " + err.Message, ToastLength.Long).Show();
 			}
@@ -1110,9 +1264,8 @@ namespace Remember_It {
 					InvalidateOptionsMenu();
 				};
 
-				FindViewById<Button>(Resource.Id.confirmPos).Click += delegate {
-					InvalidateOptionsMenu();
-				};
+				FindViewById<Button>(Resource.Id.confirmPos).Click += delegate { InvalidateOptionsMenu(); };
+				currentDialog = 2;
 			} catch (Exception err) {
 				Toast.MakeText(this, "6!: " + err.Message, ToastLength.Long).Show();
 			}
@@ -1191,6 +1344,7 @@ namespace Remember_It {
 				};
 
 				FindViewById<Button>(Resource.Id.confirmSize).Click += delegate { InvalidateOptionsMenu(); };
+				currentDialog = 2;
 			} catch (Exception err) {
 				Toast.MakeText(this, "7!: " + err.Message, ToastLength.Long).Show();
 			}
@@ -1453,11 +1607,9 @@ namespace Remember_It {
 
 								if (requestCode == 1) {
 									AddImage(result, imgSrc);
-									Toast.MakeText(this, "SRC: " + imgSrc, ToastLength.Short).Show();
 								} else if (requestCode == 2 && IsImage()) {
 									((ImageView) selected).SetImageBitmap(result);
 									((ImageView) selected).SetTag(Resource.Id.imgSrc, imgSrc);
-									Toast.MakeText(this, "SRC: " + imgSrc, ToastLength.Short).Show();
 								}
 							} catch {
 								throw new Exception("limite de espaço da memória alcançado.");
@@ -1555,6 +1707,7 @@ namespace Remember_It {
 							.Show();
 					}
 				};
+				currentDialog = 0;
 			} else if (IsImage()) {
 				MenuInflater.Inflate(Resource.Menu.ImageSelected, menu);
 
@@ -1585,6 +1738,7 @@ namespace Remember_It {
 
 					FindViewById<Button>(Resource.Id.changeImg).Click += delegate { AddImg(true); };
 					FindViewById<Button>(Resource.Id.duplicar).Click += Duplicar;
+					currentDialog = 0;
 				} catch (Exception err) {
 					Toast.MakeText(this, "5!: " + err.Message, ToastLength.Long).Show();
 				}
@@ -1605,33 +1759,38 @@ namespace Remember_It {
 
 					AutoCompleteTextView fontS = FindViewById<AutoCompleteTextView>(Resource.Id.fontSize);
 					fontS.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleDropDownItem1Line, new string[] { "8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "32", "36", "42", "48", "72" });
-					fontS.Text = PxToDip((int) ((EditText)selected).TextSize).ToString();
+					fontS.Text = PxToDip((int) ((EditText) selected).TextSize).ToString();
 					fontS.AfterTextChanged += ChangeFontSize;
 
 					aligns = new string[] { "Superior-Esquerdo", "Superior-Centro", "Superior-Direito", "Centro-Esquerdo", "Centro-Centro", "Centro-Direito", "Inferior-Esquerdo", "Inferior-Centro", "Inferior-Direito" };
 
 					Spinner align = FindViewById<Spinner>(Resource.Id.align);
 					align.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleDropDownItem1Line, aligns);
-					align.SetSelection(GetAlign(((EditText)selected).Gravity));
+					align.SetSelection(GetAlign(((EditText) selected).Gravity));
 					align.ItemSelected += ChangeAlign;
+
+					if (((EditText) selected).Typeface == null) {
+						((EditText) selected).Typeface = Typeface.SansSerif;
+					}
 
 					TypefaceStyle style = ((EditText) selected).Typeface.Style;
 
 					Button negrito = FindViewById<Button>(Resource.Id.negrito);
 					negrito.Click += Negrito;
 					if (style == TypefaceStyle.Bold || style == TypefaceStyle.BoldItalic)
-						negrito.SetBackgroundColor(new Color(68, 119, 255));
+						negrito.SetBackgroundColor(new Color(255, 235, 255));
 					else
-						negrito.SetBackgroundColor(Color.DimGray);
+						negrito.SetBackgroundColor(new Color(240, 223, 238));
 
 					Button italico = FindViewById<Button>(Resource.Id.itálico);
 					italico.Click += Italico;
 					if (style == TypefaceStyle.Italic || style == TypefaceStyle.BoldItalic)
-						italico.SetBackgroundColor(new Color(68, 119, 255));
+						italico.SetBackgroundColor(new Color(255, 235, 255));
 					else
-						italico.SetBackgroundColor(Color.DimGray);
+						italico.SetBackgroundColor(new Color(240, 223, 238));
 
 					FindViewById<Button>(Resource.Id.duplicar).Click += Duplicar;
+					currentDialog = 0;
 				} catch (Exception err) {
 					Toast.MakeText(this, "!: " + err.Message, ToastLength.Long).Show();
 				}
@@ -1670,9 +1829,11 @@ namespace Remember_It {
 					break;
 				case Resource.Id.RemoveView:
 					if (IsImage()) {
-						((BitmapDrawable) ((ImageView) selected).Drawable).Bitmap.Recycle();
-						((ImageView) selected).SetImageBitmap(null);
-						DeleteImage(selected.GetTag(Resource.Id.imgSrc).ToString());
+						try {
+							((BitmapDrawable) ((ImageView) selected).Drawable).Bitmap.Recycle();
+							((ImageView) selected).SetImageBitmap(null);
+							DeleteImage(selected.GetTag(Resource.Id.imgSrc).ToString());
+						} catch { }
 					}
 					carta.RemoveView(selected);
 					Unselect();
@@ -1684,21 +1845,30 @@ namespace Remember_It {
 					ResizeView();
 					break;
 				case Resource.Id.ResetImage:
-					((BitmapDrawable) ((ImageView) selected).Drawable).Bitmap.Recycle();
-					((ImageView) selected).SetImageBitmap(null);
-					DeleteImage(selected.GetTag(Resource.Id.imgSrc).ToString());
-					selected.SetTag(Resource.Id.imgSrc, "");
+					try {
+						((BitmapDrawable) ((ImageView) selected).Drawable).Bitmap.Recycle();
+						((ImageView) selected).SetImageBitmap(null);
+						DeleteImage(selected.GetTag(Resource.Id.imgSrc).ToString());
+						selected.SetTag(Resource.Id.imgSrc, "");
+					} catch { }
 					break;
 				case Resource.Id.UseAsBackground:
-					//Set
-					BitmapDrawable newBackground = (BitmapDrawable) ((ImageView) selected).Drawable;
-					carta.Background = newBackground;
-					carta.SetTag(Resource.Id.imgSrc, selected.GetTag(Resource.Id.imgSrc));
-					Toast.MakeText(this, "SRC: " + selected.GetTag(Resource.Id.imgSrc), ToastLength.Short).Show();
+					try {
+						if (((BitmapDrawable) ((ImageView) selected).Drawable).Bitmap != null) {
+							//Set
+							BitmapDrawable newBackground = (BitmapDrawable) ((ImageView) selected).Drawable;
+							carta.Background = newBackground;
+							carta.SetTag(Resource.Id.imgSrc, selected.GetTag(Resource.Id.imgSrc));
 
-					//Clean
-					carta.RemoveView(selected);
-					Unselect();
+							//Clean
+							carta.RemoveView(selected);
+							Unselect();
+						} else {
+							Toast.MakeText(this, "Imagem limpa, por favor troque-a", ToastLength.Short).Show();
+						}
+					} catch {
+						Toast.MakeText(this, "Imagem limpa, por favor troque-a", ToastLength.Short).Show();
+					}
 					break;
 				case Resource.Id.ResetBackground:
 					try {
@@ -1771,7 +1941,11 @@ namespace Remember_It {
 		}
 
 		public override void OnBackPressed () {
-			if (selected != null) {
+			if (currentDialog == 1) {
+				CancelColor();
+			} else if (currentDialog == 2) {
+				InvalidateOptionsMenu();
+			} else if (selected != null) {
 				Unselect();
 			} else {
 				requestAlert = 7;
@@ -1810,7 +1984,7 @@ namespace Remember_It {
 
 			bool continuar;
 			object tag;
-			foreach (string imgSrc in toDelete) {
+			foreach (string imgSrc in toDelete.Concat(notSavedImages)) {
 				continuar = false;
 
 				for (int i = 0; i < carta.ChildCount; i++) {
@@ -1818,16 +1992,18 @@ namespace Remember_It {
 					if (tag == null)
 						continue;
 
-					if (tag.ToString() == imgSrc) {
+					if (tag.ToString() == imgSrc && !notSavedImages.Contains(imgSrc)) {
 						continuar = true;
 						break;
 					}
 				}
 
 				tag = carta.GetTag(Resource.Id.imgSrc);
-				if (tag.ToString() == imgSrc)
-					continuar = true;
-				
+				if (tag != null) {
+					if (tag.ToString() == imgSrc && !notSavedImages.Contains(imgSrc)) {
+						continuar = true;
+					}
+				}
 
 				if (continuar)
 					continue;
@@ -1835,7 +2011,6 @@ namespace Remember_It {
 				string file = System.IO.Path.Combine(appPath, baralhoFileName.Replace(".lrv", " Resources"), imgSrc);
 				if (File.Exists(file)) {
 					File.Delete(file);
-					Toast.MakeText(this, "File deleted: " + imgSrc, ToastLength.Short).Show();
 				}
 			}
 
@@ -1843,3 +2018,4 @@ namespace Remember_It {
 		}
 	}
 }
+ 

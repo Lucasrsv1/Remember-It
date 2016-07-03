@@ -38,7 +38,8 @@
                     p1:textSize="14dp"
                     p1:text="255"
                     p1:inputType="number"
-                    p1:maxLength="3" />
+                    p1:maxLength="3"
+                    p1:textColor="#4A148C" />
                 <SeekBar
                     p1:layout_width="105dp"
                     p1:layout_height="match_parent"
@@ -60,7 +61,9 @@
                     p1:gravity="center"
                     p1:textSize="14dp"
                     p1:text="255"
-                    p1:inputType="number" />
+                    p1:inputType="number"
+                    p1:maxLength="3"
+                    p1:textColor="#4A148C" />
                 <SeekBar
                     p1:layout_width="105dp"
                     p1:layout_height="match_parent"
@@ -82,7 +85,9 @@
                     p1:gravity="center"
                     p1:textSize="14dp"
                     p1:text="255"
-                    p1:inputType="number" />
+                    p1:inputType="number"
+                    p1:maxLength="3"
+                    p1:textColor="#4A148C" />
                 <SeekBar
                     p1:layout_width="105dp"
                     p1:layout_height="match_parent"
@@ -315,15 +320,24 @@
                     p1:background="#FFFFFF" />
                 <Button
                     p1:text="@string/OK"
-                    p1:layout_width="77.0dp"
+                    p1:layout_width="73.0dp"
                     p1:layout_height="35dp"
                     p1:id="@+id/confirmColor"
-                    p1:layout_marginLeft="5.0dp" />
+                    p1:layout_marginLeft="5.0dp"
+                    p1:textColor="#4A148C"
+                    p1:background="#F3E5F5"
+                    p1:textStyle="bold"
+                    p1:typeface="sans" />
                 <Button
                     p1:text="@string/Voltar"
-                    p1:layout_width="77.0dp"
+                    p1:layout_width="74.0dp"
                     p1:layout_height="35dp"
-                    p1:id="@+id/cancelColor" />
+                    p1:id="@+id/cancelColor"
+                    p1:textColor="#4A148C"
+                    p1:background="#F3E5F5"
+                    p1:layout_marginLeft="5dp"
+                    p1:typeface="sans"
+                    p1:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

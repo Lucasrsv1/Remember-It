@@ -17,14 +17,26 @@
         p1:id="@+id/linearLayout1">
         <Button
             p1:text="@string/AddText"
-            p1:layout_width="175dp"
+            p1:layout_width="167dp"
             p1:layout_height="55dp"
-            p1:id="@+id/AddText" />
+            p1:id="@+id/AddText"
+            p1:layout_margin="5dp"
+            p1:background="#F3E5F5"
+            p1:textColor="#4A148C"
+            p1:typeface="sans"
+            p1:textStyle="bold"
+            p1:textSize="17dp" />
         <Button
             p1:text="@string/AddImg"
-            p1:layout_width="175dp"
+            p1:layout_width="167dp"
             p1:layout_height="55dp"
-            p1:id="@+id/AddImg" />
+            p1:id="@+id/AddImg"
+            p1:layout_margin="5dp"
+            p1:background="#F3E5F5"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C"
+            p1:textSize="17dp" />
     </LinearLayout>
     <LinearLayout
         p1:orientation="horizontal"
@@ -35,13 +47,25 @@
         p1:id="@+id/linearLayout2">
         <Button
             p1:text="@string/BackgroundColor"
-            p1:layout_width="175dp"
+            p1:layout_width="167dp"
             p1:layout_height="55dp"
-            p1:id="@+id/BackgroundColor" />
+            p1:id="@+id/BackgroundColor"
+            p1:layout_margin="5dp"
+            p1:background="#F3E5F5"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C"
+            p1:textSize="17dp" />
         <Button
             p1:text="@string/EditarVerso"
-            p1:layout_width="175dp"
+            p1:layout_width="167dp"
             p1:layout_height="55dp"
-            p1:id="@+id/EditarVerso" />
+            p1:id="@+id/EditarVerso"
+            p1:layout_margin="5dp"
+            p1:background="#F3E5F5"
+            p1:textStyle="bold"
+            p1:typeface="sans"
+            p1:textColor="#4A148C"
+            p1:textSize="17dp" />
     </LinearLayout>
 </GridLayout>

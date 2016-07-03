@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/ThemeGroup"
+		android:title="@string/ThemeGroup"
+		android:showAsAction="never" />
+	<item android:id="@+id/PackGroup"
+		android:title="@string/PackGroup"
+		android:showAsAction="never" />
+</menu>
