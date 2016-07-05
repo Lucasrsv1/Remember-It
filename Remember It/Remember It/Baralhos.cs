@@ -55,6 +55,19 @@ namespace Remember_It {
 			Favorito = favorito;
 		}
 
+		public Baralhos (string tema, string titulo, string autor, string cartas) {
+			ID = -1;
+			Tema = tema;
+			Titulo = titulo;
+			Autor = autor;
+			Cartas = cartas;
+			NCartas = 0;
+			Partidas = 0;
+			Acertos = 0;
+			Erros = 0;
+			Favorito = false;
+		}
+
 		[PrimaryKey, AutoIncrement]
 		public int ID { get; set; }
 

@@ -9,18 +9,6 @@ namespace Remember_It {
 	/// OBS.: a classe não deve ser instanciada e seus métodos são sempre estáticos.
 	/// </summary>
 	static class SGBD {
-		public class OneString {
-			public OneString () {
-				value = "";
-			}
-
-			public OneString (string val) {
-				value = val;
-			}
-
-			public string value { get; set; }
-		}
-
 		private static SQLiteConnection connection = Connect();
 
 		public static SQLiteConnection Connect () {
@@ -73,8 +61,28 @@ namespace Remember_It {
 		}
 
 		public static List<string> AcessarTemas () {
-			return (from tema in connection.Query<OneString>("SELECT DISTINCT Tema FROM Baralhos")
-					select tema.value).ToList();
+			return (from tema in connection.Query<Baralhos>("SELECT DISTINCT Tema FROM Baralhos")
+					select tema.Tema).ToList();
+		}
+
+		public static Dictionary<int, string> AcessarNomesBaralhos () {
+			Dictionary<int, string> assoc = new Dictionary<int, string>();
+
+			foreach (Baralhos baralho in (from bar in connection.Query<Baralhos>("SELECT * FROM Baralhos") select bar)) {
+				assoc.Add(baralho.ID, baralho.Titulo);
+			}
+
+			return assoc;
+		}
+
+		public static Dictionary<int, string> AcessarBaralhosPorTema (string theme) {
+			Dictionary<int, string> assoc = new Dictionary<int, string>();
+
+			foreach (Baralhos baralho in (from bar in connection.Query<Baralhos>("SELECT * FROM Baralhos WHERE Tema = ?", theme) select bar)) {
+				assoc.Add(baralho.ID, baralho.Titulo);
+			}
+
+			return assoc;
 		}
 	}
 }
