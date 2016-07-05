@@ -7,7 +7,8 @@
     p1:layout_height="match_parent"
     p1:id="@+id/gridLayout1"
     p1:layout_marginTop="380dp"
-    p1:layout_centerHorizontal="true">
+    p1:layout_centerHorizontal="true"
+    p1:paddingLeft="15dp">
     <LinearLayout
         p1:orientation="horizontal"
         p1:minWidth="25px"

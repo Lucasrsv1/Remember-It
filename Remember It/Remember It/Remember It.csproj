@@ -79,7 +79,6 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\drawable\frame.png" />
     <AndroidResource Include="Resources\layout\EditorBaralho.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
@@ -116,12 +115,17 @@
     <AndroidResource Include="Resources\layout\PositionTools.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\CartaCelula.axml">
+    <AndroidResource Include="Resources\layout\Jogo.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\menu\MainActivityMenu.axml">
+    <AndroidResource Include="Resources\layout\JogoPadrao.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\JogoConfirmar.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\menu\MainActivityMenu.axml" />
+    <AndroidResource Include="Resources\layout\CartaCelula.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -142,10 +146,13 @@
     <None Include="Modelagem do Banco de Dados.txt" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\values\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\values\Tags.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\drawable\frame.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
