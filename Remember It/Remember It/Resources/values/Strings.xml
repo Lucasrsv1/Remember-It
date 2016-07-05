@@ -6,6 +6,9 @@
 
 	<string name="Criar">Criar Baralho</string>
 	<string name="Editar">Editar Baralho</string>
+	<string name="EditarS">Editar</string>
+	<string name="Play">Praticar Baralho</string>
+	<string name="PlayS">Praticar</string>
 	<string name="Estatisticas">Estatísticas</string>
 	<string name="Sair">Sair</string>
 	<string name="ThemeGroup">Agrupar por tema</string>

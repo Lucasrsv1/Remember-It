@@ -45,7 +45,13 @@ namespace Remember_It
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int frame = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int monoandroidsplash = 2130837506;
 			
 			static Drawable()
 			{
@@ -60,347 +66,377 @@ namespace Remember_It
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06002d
-			public const int AddImg = 2131099693;
-			
-			// aapt resource value: 0x7f06002c
-			public const int AddText = 2131099692;
-			
-			// aapt resource value: 0x7f06002f
-			public const int BackgroundColor = 2131099695;
-			
-			// aapt resource value: 0x7f060068
-			public const int BackgroundTransparent = 2131099752;
-			
-			// aapt resource value: 0x7f060038
-			public const int CartasView = 2131099704;
-			
-			// aapt resource value: 0x7f060063
-			public const int ClonarCarta = 2131099747;
-			
-			// aapt resource value: 0x7f060061
-			public const int CopiarLado = 2131099745;
-			
-			// aapt resource value: 0x7f060049
-			public const int Criar = 2131099721;
-			
-			// aapt resource value: 0x7f06004a
-			public const int Editar = 2131099722;
-			
-			// aapt resource value: 0x7f060030
-			public const int EditarVerso = 2131099696;
-			
-			// aapt resource value: 0x7f06004b
-			public const int Estatisticas = 2131099723;
-			
-			// aapt resource value: 0x7f06005f
-			public const int ExcluirBaralho = 2131099743;
-			
-			// aapt resource value: 0x7f060066
-			public const int ExcluirCarta = 2131099750;
-			
-			// aapt resource value: 0x7f06006a
-			public const int HorizontalCenter = 2131099754;
-			
-			// aapt resource value: 0x7f06003d
-			public const int ImageBackground = 2131099709;
-			
-			// aapt resource value: 0x7f060062
-			public const int InverterLado = 2131099746;
-			
-			// aapt resource value: 0x7f060037
-			public const int NCartas = 2131099703;
-			
-			// aapt resource value: 0x7f06005d
-			public const int NovaCarta = 2131099741;
-			
-			// aapt resource value: 0x7f06006c
-			public const int PositionView = 2131099756;
-			
-			// aapt resource value: 0x7f060064
-			public const int RecarregarCarta = 2131099748;
-			
-			// aapt resource value: 0x7f06006f
-			public const int RemoveView = 2131099759;
-			
-			// aapt resource value: 0x7f060060
-			public const int ResetBackground = 2131099744;
-			
-			// aapt resource value: 0x7f060069
-			public const int ResetImage = 2131099753;
-			
-			// aapt resource value: 0x7f06006d
-			public const int ResizeView = 2131099757;
-			
-			// aapt resource value: 0x7f06004c
-			public const int Sair = 2131099724;
-			
-			// aapt resource value: 0x7f06005e
-			public const int SalvarBaralho = 2131099742;
-			
-			// aapt resource value: 0x7f060065
-			public const int SalvarCarta = 2131099749;
-			
-			// aapt resource value: 0x7f060071
-			public const int TextBackground = 2131099761;
-			
-			// aapt resource value: 0x7f060070
-			public const int TextColor = 2131099760;
-			
-			// aapt resource value: 0x7f060067
-			public const int UseAsBackground = 2131099751;
-			
-			// aapt resource value: 0x7f06006b
-			public const int VerticalCenter = 2131099755;
-			
-			// aapt resource value: 0x7f060046
-			public const int align = 2131099718;
-			
-			// aapt resource value: 0x7f060036
-			public const int autor = 2131099702;
-			
-			// aapt resource value: 0x7f060009
-			public const int bLayout = 2131099657;
-			
-			// aapt resource value: 0x7f06000b
-			public const int bSlider = 2131099659;
-			
-			// aapt resource value: 0x7f06000a
-			public const int blue = 2131099658;
-			
-			// aapt resource value: 0x7f06002b
-			public const int cancelColor = 2131099691;
-			
-			// aapt resource value: 0x7f06003c
-			public const int carta = 2131099708;
-			
-			// aapt resource value: 0x7f060042
-			public const int cartaJogo = 2131099714;
-			
-			// aapt resource value: 0x7f06003a
-			public const int cartaTitulo = 2131099706;
-			
-			// aapt resource value: 0x7f060041
-			public const int cartaTituloJogo = 2131099713;
-			
-			// aapt resource value: 0x7f06003e
-			public const int changeImg = 2131099710;
-			
-			// aapt resource value: 0x7f060029
-			public const int choosen = 2131099689;
-			
-			// aapt resource value: 0x7f06000f
-			public const int color1 = 2131099663;
-			
-			// aapt resource value: 0x7f060022
-			public const int color10 = 2131099682;
-			
-			// aapt resource value: 0x7f060023
-			public const int color10V = 2131099683;
-			
-			// aapt resource value: 0x7f060024
-			public const int color11 = 2131099684;
-			
-			// aapt resource value: 0x7f060025
-			public const int color11V = 2131099685;
-			
-			// aapt resource value: 0x7f060026
-			public const int color12 = 2131099686;
-			
-			// aapt resource value: 0x7f060027
-			public const int color12V = 2131099687;
-			
-			// aapt resource value: 0x7f060010
-			public const int color1V = 2131099664;
-			
-			// aapt resource value: 0x7f060011
-			public const int color2 = 2131099665;
-			
-			// aapt resource value: 0x7f060012
-			public const int color2V = 2131099666;
-			
-			// aapt resource value: 0x7f060013
-			public const int color3 = 2131099667;
-			
-			// aapt resource value: 0x7f060014
-			public const int color3V = 2131099668;
-			
-			// aapt resource value: 0x7f060015
-			public const int color4 = 2131099669;
-			
-			// aapt resource value: 0x7f060016
-			public const int color4V = 2131099670;
-			
-			// aapt resource value: 0x7f060017
-			public const int color5 = 2131099671;
-			
-			// aapt resource value: 0x7f060018
-			public const int color5V = 2131099672;
-			
-			// aapt resource value: 0x7f060019
-			public const int color6 = 2131099673;
-			
-			// aapt resource value: 0x7f06001a
-			public const int color6V = 2131099674;
-			
-			// aapt resource value: 0x7f06001c
-			public const int color7 = 2131099676;
-			
-			// aapt resource value: 0x7f06001d
-			public const int color7V = 2131099677;
-			
-			// aapt resource value: 0x7f06001e
-			public const int color8 = 2131099678;
-			
-			// aapt resource value: 0x7f06001f
-			public const int color8V = 2131099679;
-			
-			// aapt resource value: 0x7f060020
-			public const int color9 = 2131099680;
-			
-			// aapt resource value: 0x7f060021
-			public const int color9V = 2131099681;
-			
-			// aapt resource value: 0x7f06002a
-			public const int confirmColor = 2131099690;
-			
-			// aapt resource value: 0x7f060028
-			public const int confirmLayout = 2131099688;
-			
-			// aapt resource value: 0x7f060055
-			public const int confirmPos = 2131099733;
-			
-			// aapt resource value: 0x7f06005c
-			public const int confirmSize = 2131099740;
-			
-			// aapt resource value: 0x7f060040
-			public const int duplicar = 2131099712;
-			
-			// aapt resource value: 0x7f060043
-			public const int fontSize = 2131099715;
-			
-			// aapt resource value: 0x7f060006
-			public const int gLayout = 2131099654;
-			
-			// aapt resource value: 0x7f060008
-			public const int gSlider = 2131099656;
-			
-			// aapt resource value: 0x7f060007
-			public const int green = 2131099655;
-			
-			// aapt resource value: 0x7f060000
-			public const int gridLayout1 = 2131099648;
-			
-			// aapt resource value: 0x7f060048
-			public const int gridLayout3 = 2131099720;
-			
-			// aapt resource value: 0x7f060059
-			public const int height = 2131099737;
-			
-			// aapt resource value: 0x7f060045
-			public const int itálico = 2131099717;
-			
-			// aapt resource value: 0x7f06005b
-			public const int lessH = 2131099739;
-			
-			// aapt resource value: 0x7f060058
-			public const int lessW = 2131099736;
-			
-			// aapt resource value: 0x7f06004f
-			public const int lessX = 2131099727;
-			
-			// aapt resource value: 0x7f060053
-			public const int lessY = 2131099731;
-			
-			// aapt resource value: 0x7f060039
-			public const int linearLayout0 = 2131099705;
-			
-			// aapt resource value: 0x7f060001
-			public const int linearLayout1 = 2131099649;
-			
-			// aapt resource value: 0x7f06002e
-			public const int linearLayout2 = 2131099694;
-			
-			// aapt resource value: 0x7f060044
-			public const int negrito = 2131099716;
-			
 			// aapt resource value: 0x7f060047
-			public const int packs = 2131099719;
-			
-			// aapt resource value: 0x7f06000d
-			public const int paleta = 2131099661;
-			
-			// aapt resource value: 0x7f06000c
-			public const int paletaLayout = 2131099660;
-			
-			// aapt resource value: 0x7f06000e
-			public const int paletaLinha1 = 2131099662;
-			
-			// aapt resource value: 0x7f06001b
-			public const int paletaLinha2 = 2131099675;
-			
-			// aapt resource value: 0x7f06005a
-			public const int plusH = 2131099738;
-			
-			// aapt resource value: 0x7f060057
-			public const int plusW = 2131099735;
-			
-			// aapt resource value: 0x7f06004e
-			public const int plusX = 2131099726;
-			
-			// aapt resource value: 0x7f060052
-			public const int plusY = 2131099730;
-			
-			// aapt resource value: 0x7f060003
-			public const int rLayout = 2131099651;
-			
-			// aapt resource value: 0x7f060005
-			public const int rSlider = 2131099653;
-			
-			// aapt resource value: 0x7f060004
-			public const int red = 2131099652;
-			
-			// aapt resource value: 0x7f06003b
-			public const int relativeLayout1 = 2131099707;
-			
-			// aapt resource value: 0x7f060002
-			public const int rgbLayout = 2131099650;
-			
-			// aapt resource value: 0x7f06003f
-			public const int scale = 2131099711;
-			
-			// aapt resource value: 0x7f060034
-			public const int tema = 2131099700;
+			public const int Acertei = 2131099719;
 			
 			// aapt resource value: 0x7f060031
-			public const int textView1 = 2131099697;
+			public const int AddImg = 2131099697;
+			
+			// aapt resource value: 0x7f060030
+			public const int AddText = 2131099696;
 			
 			// aapt resource value: 0x7f060033
-			public const int textView2 = 2131099699;
+			public const int BackgroundColor = 2131099699;
 			
-			// aapt resource value: 0x7f060035
-			public const int textView3 = 2131099701;
+			// aapt resource value: 0x7f060070
+			public const int BackgroundTransparent = 2131099760;
 			
-			// aapt resource value: 0x7f060032
-			public const int titulo = 2131099698;
+			// aapt resource value: 0x7f06003c
+			public const int CartasView = 2131099708;
 			
-			// aapt resource value: 0x7f06006e
-			public const int unselect = 2131099758;
+			// aapt resource value: 0x7f06006b
+			public const int ClonarCarta = 2131099755;
 			
-			// aapt resource value: 0x7f060054
-			public const int voltar = 2131099732;
-			
-			// aapt resource value: 0x7f060056
-			public const int width = 2131099734;
-			
-			// aapt resource value: 0x7f06004d
-			public const int x = 2131099725;
+			// aapt resource value: 0x7f060069
+			public const int CopiarLado = 2131099753;
 			
 			// aapt resource value: 0x7f060051
-			public const int y = 2131099729;
+			public const int Criar = 2131099729;
+			
+			// aapt resource value: 0x7f060052
+			public const int Editar = 2131099730;
+			
+			// aapt resource value: 0x7f060034
+			public const int EditarVerso = 2131099700;
+			
+			// aapt resource value: 0x7f060053
+			public const int Estatisticas = 2131099731;
+			
+			// aapt resource value: 0x7f060067
+			public const int ExcluirBaralho = 2131099751;
+			
+			// aapt resource value: 0x7f06006e
+			public const int ExcluirCarta = 2131099758;
+			
+			// aapt resource value: 0x7f060072
+			public const int HorizontalCenter = 2131099762;
+			
+			// aapt resource value: 0x7f060041
+			public const int ImageBackground = 2131099713;
+			
+			// aapt resource value: 0x7f06006a
+			public const int InverterLado = 2131099754;
+			
+			// aapt resource value: 0x7f06003b
+			public const int NCartas = 2131099707;
+			
+			// aapt resource value: 0x7f060065
+			public const int NovaCarta = 2131099749;
+			
+			// aapt resource value: 0x7f06007b
+			public const int PackGroup = 2131099771;
+			
+			// aapt resource value: 0x7f060074
+			public const int PositionView = 2131099764;
+			
+			// aapt resource value: 0x7f060049
+			public const int Pular = 2131099721;
+			
+			// aapt resource value: 0x7f06006c
+			public const int RecarregarCarta = 2131099756;
+			
+			// aapt resource value: 0x7f060077
+			public const int RemoveView = 2131099767;
+			
+			// aapt resource value: 0x7f060068
+			public const int ResetBackground = 2131099752;
+			
+			// aapt resource value: 0x7f060071
+			public const int ResetImage = 2131099761;
+			
+			// aapt resource value: 0x7f060075
+			public const int ResizeView = 2131099765;
+			
+			// aapt resource value: 0x7f060048
+			public const int Resp = 2131099720;
+			
+			// aapt resource value: 0x7f060054
+			public const int Sair = 2131099732;
+			
+			// aapt resource value: 0x7f060066
+			public const int SalvarBaralho = 2131099750;
+			
+			// aapt resource value: 0x7f06006d
+			public const int SalvarCarta = 2131099757;
+			
+			// aapt resource value: 0x7f060079
+			public const int TextBackground = 2131099769;
+			
+			// aapt resource value: 0x7f060078
+			public const int TextColor = 2131099768;
+			
+			// aapt resource value: 0x7f06007a
+			public const int ThemeGroup = 2131099770;
+			
+			// aapt resource value: 0x7f06006f
+			public const int UseAsBackground = 2131099759;
+			
+			// aapt resource value: 0x7f060073
+			public const int VerticalCenter = 2131099763;
+			
+			// aapt resource value: 0x7f06004d
+			public const int align = 2131099725;
+			
+			// aapt resource value: 0x7f06003a
+			public const int autor = 2131099706;
+			
+			// aapt resource value: 0x7f06000d
+			public const int bLayout = 2131099661;
+			
+			// aapt resource value: 0x7f06000f
+			public const int bSlider = 2131099663;
+			
+			// aapt resource value: 0x7f060001
+			public const int baralhoId = 2131099649;
+			
+			// aapt resource value: 0x7f06000e
+			public const int blue = 2131099662;
+			
+			// aapt resource value: 0x7f06002f
+			public const int cancelColor = 2131099695;
+			
+			// aapt resource value: 0x7f060040
+			public const int carta = 2131099712;
+			
+			// aapt resource value: 0x7f060046
+			public const int cartaJogo = 2131099718;
+			
+			// aapt resource value: 0x7f06003e
+			public const int cartaTitulo = 2131099710;
+			
+			// aapt resource value: 0x7f060045
+			public const int cartaTituloJogo = 2131099717;
+			
+			// aapt resource value: 0x7f060042
+			public const int changeImg = 2131099714;
+			
+			// aapt resource value: 0x7f06002d
+			public const int choosen = 2131099693;
+			
+			// aapt resource value: 0x7f060013
+			public const int color1 = 2131099667;
+			
+			// aapt resource value: 0x7f060026
+			public const int color10 = 2131099686;
+			
+			// aapt resource value: 0x7f060027
+			public const int color10V = 2131099687;
+			
+			// aapt resource value: 0x7f060028
+			public const int color11 = 2131099688;
+			
+			// aapt resource value: 0x7f060029
+			public const int color11V = 2131099689;
+			
+			// aapt resource value: 0x7f06002a
+			public const int color12 = 2131099690;
+			
+			// aapt resource value: 0x7f06002b
+			public const int color12V = 2131099691;
+			
+			// aapt resource value: 0x7f060014
+			public const int color1V = 2131099668;
+			
+			// aapt resource value: 0x7f060015
+			public const int color2 = 2131099669;
+			
+			// aapt resource value: 0x7f060016
+			public const int color2V = 2131099670;
+			
+			// aapt resource value: 0x7f060017
+			public const int color3 = 2131099671;
+			
+			// aapt resource value: 0x7f060018
+			public const int color3V = 2131099672;
+			
+			// aapt resource value: 0x7f060019
+			public const int color4 = 2131099673;
+			
+			// aapt resource value: 0x7f06001a
+			public const int color4V = 2131099674;
+			
+			// aapt resource value: 0x7f06001b
+			public const int color5 = 2131099675;
+			
+			// aapt resource value: 0x7f06001c
+			public const int color5V = 2131099676;
+			
+			// aapt resource value: 0x7f06001d
+			public const int color6 = 2131099677;
+			
+			// aapt resource value: 0x7f06001e
+			public const int color6V = 2131099678;
+			
+			// aapt resource value: 0x7f060020
+			public const int color7 = 2131099680;
+			
+			// aapt resource value: 0x7f060021
+			public const int color7V = 2131099681;
+			
+			// aapt resource value: 0x7f060022
+			public const int color8 = 2131099682;
+			
+			// aapt resource value: 0x7f060023
+			public const int color8V = 2131099683;
+			
+			// aapt resource value: 0x7f060024
+			public const int color9 = 2131099684;
+			
+			// aapt resource value: 0x7f060025
+			public const int color9V = 2131099685;
+			
+			// aapt resource value: 0x7f06002e
+			public const int confirmColor = 2131099694;
+			
+			// aapt resource value: 0x7f06002c
+			public const int confirmLayout = 2131099692;
+			
+			// aapt resource value: 0x7f06005d
+			public const int confirmPos = 2131099741;
+			
+			// aapt resource value: 0x7f060064
+			public const int confirmSize = 2131099748;
+			
+			// aapt resource value: 0x7f060044
+			public const int duplicar = 2131099716;
+			
+			// aapt resource value: 0x7f06004a
+			public const int fontSize = 2131099722;
+			
+			// aapt resource value: 0x7f06000a
+			public const int gLayout = 2131099658;
+			
+			// aapt resource value: 0x7f06000c
+			public const int gSlider = 2131099660;
+			
+			// aapt resource value: 0x7f06000b
+			public const int green = 2131099659;
+			
+			// aapt resource value: 0x7f060004
+			public const int gridLayout1 = 2131099652;
 			
 			// aapt resource value: 0x7f060050
-			public const int z = 2131099728;
+			public const int gridLayout3 = 2131099728;
+			
+			// aapt resource value: 0x7f060061
+			public const int height = 2131099745;
+			
+			// aapt resource value: 0x7f060002
+			public const int imageView1 = 2131099650;
+			
+			// aapt resource value: 0x7f060000
+			public const int imgSrc = 2131099648;
+			
+			// aapt resource value: 0x7f06004c
+			public const int itálico = 2131099724;
+			
+			// aapt resource value: 0x7f060063
+			public const int lessH = 2131099747;
+			
+			// aapt resource value: 0x7f060060
+			public const int lessW = 2131099744;
+			
+			// aapt resource value: 0x7f060057
+			public const int lessX = 2131099735;
+			
+			// aapt resource value: 0x7f06005b
+			public const int lessY = 2131099739;
+			
+			// aapt resource value: 0x7f06004f
+			public const int linear = 2131099727;
+			
+			// aapt resource value: 0x7f06003d
+			public const int linearLayout0 = 2131099709;
+			
+			// aapt resource value: 0x7f060005
+			public const int linearLayout1 = 2131099653;
+			
+			// aapt resource value: 0x7f060032
+			public const int linearLayout2 = 2131099698;
+			
+			// aapt resource value: 0x7f06004b
+			public const int negrito = 2131099723;
+			
+			// aapt resource value: 0x7f06004e
+			public const int packs = 2131099726;
+			
+			// aapt resource value: 0x7f060011
+			public const int paleta = 2131099665;
+			
+			// aapt resource value: 0x7f060010
+			public const int paletaLayout = 2131099664;
+			
+			// aapt resource value: 0x7f060012
+			public const int paletaLinha1 = 2131099666;
+			
+			// aapt resource value: 0x7f06001f
+			public const int paletaLinha2 = 2131099679;
+			
+			// aapt resource value: 0x7f060062
+			public const int plusH = 2131099746;
+			
+			// aapt resource value: 0x7f06005f
+			public const int plusW = 2131099743;
+			
+			// aapt resource value: 0x7f060056
+			public const int plusX = 2131099734;
+			
+			// aapt resource value: 0x7f06005a
+			public const int plusY = 2131099738;
+			
+			// aapt resource value: 0x7f060007
+			public const int rLayout = 2131099655;
+			
+			// aapt resource value: 0x7f060009
+			public const int rSlider = 2131099657;
+			
+			// aapt resource value: 0x7f060008
+			public const int red = 2131099656;
+			
+			// aapt resource value: 0x7f06003f
+			public const int relativeLayout1 = 2131099711;
+			
+			// aapt resource value: 0x7f060006
+			public const int rgbLayout = 2131099654;
+			
+			// aapt resource value: 0x7f060043
+			public const int scale = 2131099715;
+			
+			// aapt resource value: 0x7f060038
+			public const int tema = 2131099704;
+			
+			// aapt resource value: 0x7f060003
+			public const int textView = 2131099651;
+			
+			// aapt resource value: 0x7f060035
+			public const int textView1 = 2131099701;
+			
+			// aapt resource value: 0x7f060037
+			public const int textView2 = 2131099703;
+			
+			// aapt resource value: 0x7f060039
+			public const int textView3 = 2131099705;
+			
+			// aapt resource value: 0x7f060036
+			public const int titulo = 2131099702;
+			
+			// aapt resource value: 0x7f060076
+			public const int unselect = 2131099766;
+			
+			// aapt resource value: 0x7f06005c
+			public const int voltar = 2131099740;
+			
+			// aapt resource value: 0x7f06005e
+			public const int width = 2131099742;
+			
+			// aapt resource value: 0x7f060055
+			public const int x = 2131099733;
+			
+			// aapt resource value: 0x7f060059
+			public const int y = 2131099737;
+			
+			// aapt resource value: 0x7f060058
+			public const int z = 2131099736;
 			
 			static Id()
 			{
@@ -416,40 +452,43 @@ namespace Remember_It
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int ColorTools = 2130903040;
+			public const int CartaCelula = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int DefaultTools = 2130903041;
+			public const int ColorTools = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int EditorBaralho = 2130903042;
+			public const int DefaultTools = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int EditorCarta = 2130903043;
+			public const int EditorBaralho = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int ImageTools = 2130903044;
+			public const int EditorCarta = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Jogo = 2130903045;
+			public const int ImageTools = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int JogoConfirmar = 2130903046;
+			public const int Jogo = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int JogoPadrao = 2130903047;
+			public const int JogoConfirmar = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int LabelTools = 2130903048;
+			public const int JogoPadrao = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int Main = 2130903049;
+			public const int LabelTools = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int PositionTools = 2130903050;
+			public const int Main = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int SizeTools = 2130903051;
+			public const int PositionTools = 2130903051;
+			
+			// aapt resource value: 0x7f03000c
+			public const int SizeTools = 2130903052;
 			
 			static Layout()
 			{
@@ -464,17 +503,20 @@ namespace Remember_It
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int EditorBaralhoMenu = 2131034112;
+			// aapt resource value: 0x7f070000
+			public const int EditorBaralhoMenu = 2131165184;
 			
-			// aapt resource value: 0x7f050001
-			public const int EditorCartaMenu = 2131034113;
+			// aapt resource value: 0x7f070001
+			public const int EditorCartaMenu = 2131165185;
 			
-			// aapt resource value: 0x7f050002
-			public const int ImageSelected = 2131034114;
+			// aapt resource value: 0x7f070002
+			public const int ImageSelected = 2131165186;
 			
-			// aapt resource value: 0x7f050003
-			public const int LabelSelected = 2131034115;
+			// aapt resource value: 0x7f070003
+			public const int LabelSelected = 2131165187;
+			
+			// aapt resource value: 0x7f070004
+			public const int MainActivityMenu = 2131165188;
 			
 			static Menu()
 			{
@@ -489,92 +531,95 @@ namespace Remember_It
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040017
-			public const int AddImg = 2130968599;
+			// aapt resource value: 0x7f04001a
+			public const int AddImg = 2130968602;
 			
-			// aapt resource value: 0x7f040016
-			public const int AddText = 2130968598;
+			// aapt resource value: 0x7f040019
+			public const int AddText = 2130968601;
 			
-			// aapt resource value: 0x7f040029
-			public const int Align = 2130968617;
+			// aapt resource value: 0x7f04002c
+			public const int Align = 2130968620;
 			
 			// aapt resource value: 0x7f040000
 			public const int ApplicationName = 2130968576;
 			
-			// aapt resource value: 0x7f04000b
-			public const int Autor = 2130968587;
-			
-			// aapt resource value: 0x7f04001c
-			public const int BackgroundColor = 2130968604;
+			// aapt resource value: 0x7f04000e
+			public const int Autor = 2130968590;
 			
 			// aapt resource value: 0x7f04001f
-			public const int BackgroundTransparent = 2130968607;
+			public const int BackgroundColor = 2130968607;
 			
-			// aapt resource value: 0x7f040031
-			public const int Cancelar = 2130968625;
+			// aapt resource value: 0x7f040022
+			public const int BackgroundTransparent = 2130968610;
 			
-			// aapt resource value: 0x7f040011
-			public const int ClonarCarta = 2130968593;
+			// aapt resource value: 0x7f040034
+			public const int Cancelar = 2130968628;
 			
-			// aapt resource value: 0x7f040037
-			public const int ConfirmBackground = 2130968631;
-			
-			// aapt resource value: 0x7f040036
-			public const int ConfirmBackgroundTitle = 2130968630;
-			
-			// aapt resource value: 0x7f040043
-			public const int ConfirmClone = 2130968643;
-			
-			// aapt resource value: 0x7f040042
-			public const int ConfirmCloneTitle = 2130968642;
-			
-			// aapt resource value: 0x7f04003f
-			public const int ConfirmCopy = 2130968639;
-			
-			// aapt resource value: 0x7f04003e
-			public const int ConfirmCopyTitle = 2130968638;
-			
-			// aapt resource value: 0x7f04003d
-			public const int ConfirmExclusion = 2130968637;
-			
-			// aapt resource value: 0x7f04003c
-			public const int ConfirmExclusionTitle = 2130968636;
-			
-			// aapt resource value: 0x7f040041
-			public const int ConfirmInvert = 2130968641;
-			
-			// aapt resource value: 0x7f040040
-			public const int ConfirmInvertTitle = 2130968640;
-			
-			// aapt resource value: 0x7f040039
-			public const int ConfirmLeave = 2130968633;
-			
-			// aapt resource value: 0x7f040038
-			public const int ConfirmLeaveTitle = 2130968632;
-			
-			// aapt resource value: 0x7f04003b
-			public const int ConfirmRefresh = 2130968635;
+			// aapt resource value: 0x7f040014
+			public const int ClonarCarta = 2130968596;
 			
 			// aapt resource value: 0x7f04003a
-			public const int ConfirmRefreshTitle = 2130968634;
+			public const int ConfirmBackground = 2130968634;
 			
-			// aapt resource value: 0x7f040012
-			public const int CopiarLado = 2130968594;
+			// aapt resource value: 0x7f040039
+			public const int ConfirmBackgroundTitle = 2130968633;
+			
+			// aapt resource value: 0x7f040046
+			public const int ConfirmClone = 2130968646;
+			
+			// aapt resource value: 0x7f040045
+			public const int ConfirmCloneTitle = 2130968645;
+			
+			// aapt resource value: 0x7f040042
+			public const int ConfirmCopy = 2130968642;
+			
+			// aapt resource value: 0x7f040041
+			public const int ConfirmCopyTitle = 2130968641;
+			
+			// aapt resource value: 0x7f040040
+			public const int ConfirmExclusion = 2130968640;
+			
+			// aapt resource value: 0x7f04003f
+			public const int ConfirmExclusionTitle = 2130968639;
+			
+			// aapt resource value: 0x7f040044
+			public const int ConfirmInvert = 2130968644;
+			
+			// aapt resource value: 0x7f040043
+			public const int ConfirmInvertTitle = 2130968643;
+			
+			// aapt resource value: 0x7f04003c
+			public const int ConfirmLeave = 2130968636;
+			
+			// aapt resource value: 0x7f04003b
+			public const int ConfirmLeaveTitle = 2130968635;
+			
+			// aapt resource value: 0x7f04003e
+			public const int ConfirmRefresh = 2130968638;
+			
+			// aapt resource value: 0x7f04003d
+			public const int ConfirmRefreshTitle = 2130968637;
+			
+			// aapt resource value: 0x7f040015
+			public const int CopiarLado = 2130968597;
 			
 			// aapt resource value: 0x7f040003
 			public const int Criar = 2130968579;
 			
-			// aapt resource value: 0x7f04002b
-			public const int Duplicar = 2130968619;
+			// aapt resource value: 0x7f04002e
+			public const int Duplicar = 2130968622;
 			
 			// aapt resource value: 0x7f040004
 			public const int Editar = 2130968580;
 			
-			// aapt resource value: 0x7f040019
-			public const int EditarFrente = 2130968601;
+			// aapt resource value: 0x7f04001c
+			public const int EditarFrente = 2130968604;
 			
-			// aapt resource value: 0x7f040018
-			public const int EditarVerso = 2130968600;
+			// aapt resource value: 0x7f040005
+			public const int EditarS = 2130968581;
+			
+			// aapt resource value: 0x7f04001b
+			public const int EditarVerso = 2130968603;
 			
 			// aapt resource value: 0x7f040001
 			public const int Editor = 2130968577;
@@ -582,122 +627,128 @@ namespace Remember_It
 			// aapt resource value: 0x7f040002
 			public const int EditorCartas = 2130968578;
 			
-			// aapt resource value: 0x7f040005
-			public const int Estatisticas = 2130968581;
-			
-			// aapt resource value: 0x7f040015
-			public const int ExcluirBaralho = 2130968597;
-			
-			// aapt resource value: 0x7f04000f
-			public const int ExcluirCarta = 2130968591;
-			
-			// aapt resource value: 0x7f040028
-			public const int FontS = 2130968616;
-			
-			// aapt resource value: 0x7f04001a
-			public const int Frente = 2130968602;
-			
-			// aapt resource value: 0x7f040035
-			public const int Height = 2130968629;
-			
-			// aapt resource value: 0x7f040022
-			public const int HorizontalCenter = 2130968610;
-			
-			// aapt resource value: 0x7f040013
-			public const int InverterLado = 2130968595;
-			
-			// aapt resource value: 0x7f040027
-			public const int Itálico = 2130968615;
-			
-			// aapt resource value: 0x7f04000c
-			public const int NCartas = 2130968588;
-			
-			// aapt resource value: 0x7f040033
-			public const int NaoSalvar = 2130968627;
-			
-			// aapt resource value: 0x7f040026
-			public const int Negrito = 2130968614;
-			
-			// aapt resource value: 0x7f040045
-			public const int No = 2130968645;
-			
-			// aapt resource value: 0x7f04000d
-			public const int NovaCarta = 2130968589;
-			
-			// aapt resource value: 0x7f04002f
-			public const int OK = 2130968623;
-			
 			// aapt resource value: 0x7f040008
-			public const int PackGroup = 2130968584;
+			public const int Estatisticas = 2130968584;
 			
-			// aapt resource value: 0x7f040021
-			public const int Posicionar = 2130968609;
+			// aapt resource value: 0x7f040018
+			public const int ExcluirBaralho = 2130968600;
 			
-			// aapt resource value: 0x7f040010
-			public const int RecarregarCarta = 2130968592;
+			// aapt resource value: 0x7f040012
+			public const int ExcluirCarta = 2130968594;
 			
-			// aapt resource value: 0x7f040024
-			public const int Redimencionar = 2130968612;
-			
-			// aapt resource value: 0x7f040025
-			public const int Remover = 2130968613;
-			
-			// aapt resource value: 0x7f04001e
-			public const int ResetBackground = 2130968606;
-			
-			// aapt resource value: 0x7f04002e
-			public const int ResetImage = 2130968622;
-			
-			// aapt resource value: 0x7f040006
-			public const int Sair = 2130968582;
-			
-			// aapt resource value: 0x7f040032
-			public const int Salvar = 2130968626;
-			
-			// aapt resource value: 0x7f040014
-			public const int SalvarBaralho = 2130968596;
-			
-			// aapt resource value: 0x7f04000e
-			public const int SalvarCarta = 2130968590;
-			
-			// aapt resource value: 0x7f04002a
-			public const int Scale = 2130968618;
-			
-			// aapt resource value: 0x7f04000a
-			public const int Tema = 2130968586;
-			
-			// aapt resource value: 0x7f040020
-			public const int TextColor = 2130968608;
-			
-			// aapt resource value: 0x7f040007
-			public const int ThemeGroup = 2130968583;
-			
-			// aapt resource value: 0x7f040009
-			public const int Titulo = 2130968585;
-			
-			// aapt resource value: 0x7f04002d
-			public const int TrocarImg = 2130968621;
-			
-			// aapt resource value: 0x7f04002c
-			public const int Unselect = 2130968620;
+			// aapt resource value: 0x7f04002b
+			public const int FontS = 2130968619;
 			
 			// aapt resource value: 0x7f04001d
-			public const int UseAsBackground = 2130968605;
+			public const int Frente = 2130968605;
 			
-			// aapt resource value: 0x7f04001b
-			public const int Verso = 2130968603;
+			// aapt resource value: 0x7f040038
+			public const int Height = 2130968632;
+			
+			// aapt resource value: 0x7f040025
+			public const int HorizontalCenter = 2130968613;
+			
+			// aapt resource value: 0x7f040016
+			public const int InverterLado = 2130968598;
+			
+			// aapt resource value: 0x7f04002a
+			public const int Itálico = 2130968618;
+			
+			// aapt resource value: 0x7f04000f
+			public const int NCartas = 2130968591;
+			
+			// aapt resource value: 0x7f040036
+			public const int NaoSalvar = 2130968630;
+			
+			// aapt resource value: 0x7f040029
+			public const int Negrito = 2130968617;
+			
+			// aapt resource value: 0x7f040048
+			public const int No = 2130968648;
+			
+			// aapt resource value: 0x7f040010
+			public const int NovaCarta = 2130968592;
+			
+			// aapt resource value: 0x7f040032
+			public const int OK = 2130968626;
+			
+			// aapt resource value: 0x7f04000b
+			public const int PackGroup = 2130968587;
+			
+			// aapt resource value: 0x7f040006
+			public const int Play = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int PlayS = 2130968583;
+			
+			// aapt resource value: 0x7f040024
+			public const int Posicionar = 2130968612;
+			
+			// aapt resource value: 0x7f040013
+			public const int RecarregarCarta = 2130968595;
+			
+			// aapt resource value: 0x7f040027
+			public const int Redimencionar = 2130968615;
+			
+			// aapt resource value: 0x7f040028
+			public const int Remover = 2130968616;
+			
+			// aapt resource value: 0x7f040021
+			public const int ResetBackground = 2130968609;
+			
+			// aapt resource value: 0x7f040031
+			public const int ResetImage = 2130968625;
+			
+			// aapt resource value: 0x7f040009
+			public const int Sair = 2130968585;
+			
+			// aapt resource value: 0x7f040035
+			public const int Salvar = 2130968629;
+			
+			// aapt resource value: 0x7f040017
+			public const int SalvarBaralho = 2130968599;
+			
+			// aapt resource value: 0x7f040011
+			public const int SalvarCarta = 2130968593;
+			
+			// aapt resource value: 0x7f04002d
+			public const int Scale = 2130968621;
+			
+			// aapt resource value: 0x7f04000d
+			public const int Tema = 2130968589;
 			
 			// aapt resource value: 0x7f040023
-			public const int VerticalCenter = 2130968611;
+			public const int TextColor = 2130968611;
+			
+			// aapt resource value: 0x7f04000a
+			public const int ThemeGroup = 2130968586;
+			
+			// aapt resource value: 0x7f04000c
+			public const int Titulo = 2130968588;
 			
 			// aapt resource value: 0x7f040030
-			public const int Voltar = 2130968624;
+			public const int TrocarImg = 2130968624;
 			
-			// aapt resource value: 0x7f040034
-			public const int Width = 2130968628;
+			// aapt resource value: 0x7f04002f
+			public const int Unselect = 2130968623;
 			
-			// aapt resource value: 0x7f040044
-			public const int Yes = 2130968644;
+			// aapt resource value: 0x7f040020
+			public const int UseAsBackground = 2130968608;
+			
+			// aapt resource value: 0x7f04001e
+			public const int Verso = 2130968606;
+			
+			// aapt resource value: 0x7f040026
+			public const int VerticalCenter = 2130968614;
+			
+			// aapt resource value: 0x7f040033
+			public const int Voltar = 2130968627;
+			
+			// aapt resource value: 0x7f040037
+			public const int Width = 2130968631;
+			
+			// aapt resource value: 0x7f040047
+			public const int Yes = 2130968647;
 			
 			static String()
 			{
@@ -705,6 +756,37 @@ namespace Remember_It
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int CustomActionBarTheme = 2131034112;
+			
+			// aapt resource value: 0x7f050005
+			public const int Mono_Android_Theme_Splash = 2131034117;
+			
+			// aapt resource value: 0x7f050001
+			public const int MyActionBar = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int MyActionBarTitleText = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int custom_popupMenu = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int custom_spinnerStyle = 2131034116;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

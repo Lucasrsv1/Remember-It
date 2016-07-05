@@ -138,7 +138,7 @@ namespace Remember_It {
 
 						baralho.NCartas++;
 						SGBD.UpdateBaralho(baralho);
-						Toast.MakeText(this, "Carta adicionada ao baralho.", ToastLength.Long).Show();
+						Toast.MakeText(this, "Carta adicionada ao baralho.", ToastLength.Short).Show();
 					} catch (Exception err) {
 						Toast.MakeText(this, "3! " + err.Message, ToastLength.Long).Show();
 					}
@@ -151,7 +151,7 @@ namespace Remember_It {
 						baralho.Favorito = fav;
 
 						SGBD.UpdateBaralho(baralho);
-						Toast.MakeText(this, "Baralho salvo com sucesso!", ToastLength.Long).Show();
+						Toast.MakeText(this, "Baralho salvo com sucesso!", ToastLength.Short).Show();
 					} catch (Exception err) {
 						Toast.MakeText(this, "2! " + err.Message, ToastLength.Long).Show();
 					}
@@ -164,7 +164,7 @@ namespace Remember_It {
 						File.Delete(filePath);
 						SGBD.DeleteBaralho(baralho.ID);
 
-						Toast.MakeText(this, "Baralho excluído com sucesso.", ToastLength.Long).Show();
+						Toast.MakeText(this, "Baralho excluído com sucesso.", ToastLength.Short).Show();
 						Finish();
 					} catch {
 						Toast.MakeText(this, "Erro ao excluir o baralho.", ToastLength.Long).Show();

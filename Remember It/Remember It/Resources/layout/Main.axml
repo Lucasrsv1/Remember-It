@@ -6,63 +6,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="390dp"
-        android:id="@+id/packs" />
     <GridLayout
-        android:id="@+id/gridLayout3"
-        android:rowCount="2"
+        android:id="@+id/packs"
         android:columnCount="2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:alignmentMode="alignBounds"
-        android:orientation="horizontal">
-        <Button
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:rowCount="3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linear"
+        android:background="#F3F3F3"
+        android:gravity="center_horizontal">
+        <GridLayout
+            android:id="@+id/gridLayout3"
+            android:rowCount="2"
+            android:columnCount="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignBounds"
             android:orientation="horizontal"
-            android:id="@+id/Criar"
-            android:layout_width="165dp"
-            android:layout_height="65dp"
-            android:text="@string/Criar"
-            android:background="#F3E5F5"
-            android:textColor="#4A148C"
-            android:textSize="21dp"
-            android:typeface="sans"
-            android:textStyle="bold"
-            android:layout_margin="5dp"
-            android:layout_marginLeft="7dp" />
-        <Button
-            android:id="@+id/Editar"
-            android:layout_width="165dp"
-            android:layout_height="65dp"
-            android:text="@string/Editar"
-            android:background="#F3E5F5"
-            android:textSize="21dp"
-            android:typeface="sans"
-            android:textStyle="bold"
-            android:textColor="#4A148C"
-            android:layout_margin="5dp" />
-        <Button
-            android:id="@+id/Estatisticas"
-            android:layout_width="165dp"
-            android:layout_height="65dp"
-            android:text="@string/Estatisticas"
-            android:background="#F3E5F5"
-            android:textColor="#4A148C"
-            android:typeface="sans"
-            android:textStyle="bold"
-            android:textSize="21dp"
-            android:layout_margin="5dp" />
-        <Button
-            android:id="@+id/Sair"
-            android:layout_width="165dp"
-            android:layout_height="65dp"
-            android:text="@string/Sair"
-            android:background="#F3E5F5"
-            android:textColor="#4A148C"
-            android:typeface="sans"
-            android:textStyle="bold"
-            android:textSize="21dp"
-            android:layout_margin="5dp" />
-    </GridLayout>
+            android:layout_gravity="center"
+            android:foregroundGravity="center">
+            <Button
+                android:orientation="horizontal"
+                android:id="@+id/Criar"
+                android:layout_width="165dp"
+                android:layout_height="65dp"
+                android:text="@string/Criar"
+                android:background="#F3E5F5"
+                android:textColor="#4A148C"
+                android:textSize="21dp"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true" />
+            <Button
+                android:id="@+id/Editar"
+                android:layout_width="165dp"
+                android:layout_height="65dp"
+                android:text="@string/Editar"
+                android:background="#F3E5F5"
+                android:textSize="21dp"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textColor="#4A148C"
+                android:layout_marginLeft="10dp" />
+            <Button
+                android:id="@+id/Estatisticas"
+                android:layout_width="165dp"
+                android:layout_height="65dp"
+                android:text="@string/Estatisticas"
+                android:layout_marginTop="10dp"
+                android:background="#F3E5F5"
+                android:textColor="#4A148C"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textSize="21dp" />
+            <Button
+                android:id="@+id/Sair"
+                android:layout_width="165dp"
+                android:layout_height="65dp"
+                android:text="@string/Sair"
+                android:background="#F3E5F5"
+                android:textColor="#4A148C"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textSize="21dp" />
+        </GridLayout>
+    </LinearLayout>
 </LinearLayout>
